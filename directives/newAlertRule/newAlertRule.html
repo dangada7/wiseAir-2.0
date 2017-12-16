@@ -1,0 +1,305 @@
+<div id="newAlertRuleDirective" data-ng-show="show">
+
+    <div class="modal-content">
+
+        <!-- Tabs -->
+        <div class="tabs" data-ng-init="data.currentTabName='rule'">
+            <div  class="wiseTitle2 navBtn"
+                  data-ng-class="{'selectedTab' : data.currentTabName == 'rule'}"
+                  data-ng-click="data.currentTabName='rule'">
+                  RULE
+            </div>
+            <div  class="wiseTitle2 navBtn"
+                  data-ng-class="{'selectedTab' : data.currentTabName == 'actions'}"
+                  data-ng-click="data.currentTabName='actions'; arrangeTables()">
+                  ACTIONS
+            </div>
+        </div>
+
+        <!-- Close icon -->
+        <span class="close" data-ng-click="clickOnClose()">&times;</span>
+
+        <!-- section (1) -->
+        <div class="section" data-ng-show="data.currentTabName=='rule'">
+
+            <span class="wiseText4 ruleName" >
+                *Rule Name:
+            </span>
+            
+            <input class="wiseInput" data-ng-model="localData.selected.ruleName" placeholder="Text">
+            
+            <span class="wiseText4 description">
+                *Description:
+            </span>
+            <textarea class="tableCell"  name="" id="" rows="4" data-ng-model="localData.selected.description"
+                        placeholder="This text will be shown when you get Notified! use it wisely. for Example: write what action to perform after getting notified.">
+            </textarea>
+
+        </div>
+
+        <!-- section (2) -->
+        <div class="section" data-ng-show="data.currentTabName=='rule'">
+            <!-- 1. supply platforms-->
+            
+                <span class="wiseText4 tableCell">
+                    *Run Test Every
+                </span>
+
+                <wise-select
+                        class="runEveryUnit"
+                        type="regular"
+                        options="localData.options.timeUnit"
+                        selected-data="localData.selected.runTestEvery.unit"
+                        width="105px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        type="regular"
+                        options="localData.options.timeVales[localData.selected.runTestEvery.unit.label].values"
+                        selected-data="localData.selected.runTestEvery.val"
+                        width="40px"
+                        disabled-input="false">
+                </wise-select>
+                <br>
+                <br>
+                <span class="wiseText4 tableCell">
+                    *Time Period
+                </span>
+
+                <wise-select
+                        class="timePeriodUnit"
+                        type="regular"
+                        options="localData.options.timeUnit"
+                        selected-data="localData.selected.window.unit"
+                        width="105px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        type="regular"
+                        options="localData.options.timeVales[localData.selected.window.unit.label].values"
+                        selected-data="localData.selected.window.val"
+                        width="40px"
+                        disabled-input="false">
+                </wise-select>
+        </div>
+
+        <!-- section (3) -->
+        <div class="section" data-ng-show="data.currentTabName=='rule'">
+
+            <div>
+                <div class="filtersLoader" data-ng-show="showLoader">
+                    <div class="wiseLoader2">
+                        <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+
+            <div data-ng-show="!showLoader" class="filterSection">
+                <div class="wiseText4">
+                    <span class="tableCell">
+                        *Entity for testing:
+                    </span>
+                    <wise-select
+                            class="entity"
+                            placeholder=""
+                            type="sections"
+                            options="localData.options.entity"
+                            selected-data="localData.selected.entity"
+                            width="160px"
+                            disabled-input=true>
+                    </wise-select>
+                </div>
+                <br>
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple"
+                        placeholder="Supply Platforms"
+                        options="localData.options.supplyPlatforms"
+                        selected-data="localData.selected.supplyPlatforms"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple_autocomplete"
+                        placeholder="Supply Partners"
+                        options="localData.options.supplyPartners"
+                        selected-data="localData.selected.supplyPartners"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple_autocomplete"
+                        placeholder="Supply Sources"
+                        options="localData.options.supplySources"
+                        selected-data="localData.selected.supplySources"
+                        width="160px"
+                        lazy-load="true"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple_autocomplete"
+                        placeholder="Campaigns"
+                        options="localData.options.campaigns"
+                        selected-data="localData.selected.campaigns"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+
+                <br>
+                <br>
+                <wise-select
+                        class="tableCell"
+                        type="multiple"
+                        placeholder="Demand Platforms"
+                        options="localData.options.demandPlatforms"
+                        selected-data="localData.selected.demandPlatforms"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple_autocomplete"
+                        placeholder="Demand Partners"
+                        options="localData.options.demandPartners"
+                        selected-data="localData.selected.demandPartners"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+
+
+                <wise-select
+                        class="tableCell"
+                        type="multiple_autocomplete"
+                        placeholder="Demand Sources"
+                        options="localData.options.demandSources"
+                        selected-data="localData.selected.demandSources"
+                        width="160px"
+                        lazy-load="true"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        class="tableCell"
+                        type="input"
+                        placeholder="Domain"
+                        options="localData.options.domain"
+                        selected-data="localData.selected.domain"
+                        width="160px"
+                        disabled-input="false">
+                </wise-select>
+            </div>
+        </div>
+
+        <!-- section (4) -->
+        <div class="section" data-ng-show="data.currentTabName=='rule'">
+
+            <div class="wiseText6">
+                Alert me if
+                <input type="radio" data-ng-model="localData.selected.clauseOperator" value="and"> All
+                <input type="radio" data-ng-model="localData.selected.clauseOperator" value="or"> Any
+                &nbsp Of the condition below are satisfied:
+            </div><br>
+
+            <div data-ng-repeat="clause in localData.selected.clauses" class="clause">
+
+                <wise-select
+                        placeholder="Measures"
+                        type="regular"
+                        options="localData.options.measures"
+                        selected-data="clause.measure"
+                        width="140px"
+                        disabled-input="false">
+                </wise-select>
+
+                <wise-select
+                        placeholder="Operators"
+                        class="operators"
+                        type="regular"
+                        options="localData.options.operators"
+                        selected-data="clause.operator"
+                        width="140px"
+                        disabled-input="false">
+                </wise-select>
+
+                <input class="tableCell wiseInput clauseValue" data-ng-model="clause.val" type="number" placeholder="Enter Value">
+
+                <img class="add" data-ng-if="$index==0" src="/resources/images/add.svg" alt="" data-ng-click="addClause()">
+                <img  class="delete" data-ng-if="$index!=0" src="/resources/images/delete.svg" alt="" data-ng-click="deleteClause($index)">
+
+                    <!--<button data-ng-if="$index==0" data-ng-click="addClause()" class="tableCell"> + </button>
+                    <button data-ng-if="$index!=0" data-ng-click="deleteClause($index)" class="tableCell"> - </button>-->
+            </div>
+        </div>
+
+        <!-- section (5) -->
+        <div class="section wiseText5" data-ng-show="data.currentTabName=='rule'">
+            <div  class="wiseText4">  Notify Me Via: </div>
+            <input type="radio" value="0" ng-model="localData.selected.notification">  Alert me on the alerts panel (upper right side of the screen) <br>
+            <input type="radio" value="1" ng-model="localData.selected.notification">  Send me an email as well
+        </div>
+
+        <!-- actions tab -->
+        <div class="wiseText5" data-ng-show="data.currentTabName=='actions'" data-ng-init="data.currentInnerTabName='demandSources'">
+            <div class="tabs innerTabs" data-ng-init="data.currentTabName='rule'">
+                <div  class="wiseTitle2 navBtn"
+                      data-ng-class="{'selectedTab' : data.currentInnerTabName == 'demandSources'}"
+                      data-ng-click="data.currentInnerTabName='demandSources'">
+                    Demand Sources
+                </div>
+                <div  class="wiseTitle2 navBtn"
+                      data-ng-class="{'selectedTab' : data.currentInnerTabName == 'supplySources'}"
+                      data-ng-click="data.currentInnerTabName='supplySources'">
+                    Supply Sources
+                </div>
+            </div>
+
+            <div class="tableWrapper newAlertRule">
+                <wise-table
+                        data-ng-show="data.currentInnerTabName == 'demandSources'"
+                        table-title=""
+                        table-data="demandSourceTableData"
+                        show-loader="showLoader"
+                        update-table="updateDemandSourceTable"
+                        table-style="style1">
+                </wise-table>
+
+                <wise-table
+                        data-ng-show="data.currentInnerTabName == 'supplySources'"
+                        table-title=""
+                        table-data="supplySourceTableData"
+                        show-loader="showLoader"
+                        update-table="updateSupplySourceTable"
+                        table-style="style1">
+                </wise-table>
+            </div>
+
+        </div>
+
+        <!-- Last section -->
+        <div class="lastSection">
+            <div class="wiseBtn1" data-ng-click="show=false">
+                CANCEL
+            </div>
+            <div class="wiseBtn1 saveBtn" data-ng-click="save()">
+                SAVE
+            </div>
+        </div>
+
+
+
+    </div> <!-- close modal-content-->
+
+</div>

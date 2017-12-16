@@ -1,0 +1,17 @@
+<div class="wiseSwitchDirective" style="{{'width : ' + width}}">
+
+    <span class="wiseText6"> {{label}} </span>
+    <label class="wiseSwitch" data-ng-show="!showLoader">
+        <input type="checkbox" data-ng-model="status" data-ng-click="onChangeCallBackWrapper()">
+        <div data-ng-class="{'checked' : status}"></div>
+    </label>
+
+    <div class="kpiLoaderWrapper" data-ng-show="showLoader">
+        <div class="wiseLoader3">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+    </div>
+
+</div>

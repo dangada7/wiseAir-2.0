@@ -1,0 +1,216 @@
+/* The Modal (background) */
+#newAlertRuleDirective {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+#newAlertRuleDirective .modal-content {
+    background-color: var(--gray);
+    margin: auto;
+    width: 1000px;
+    margin-bottom: 200px;
+}
+
+/* ============= */
+/* Close Button: */
+/* ============= */
+#newAlertRuleDirective .modal-content .close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -45px;
+    margin-right: 12px;
+}
+
+
+#newAlertRuleDirective .navBtn {
+    font-size : 18px!important;
+}
+
+#newAlertRuleDirective .modal-content .close:hover,
+#newAlertRuleDirective .modal-content .close:focus {
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ===== */
+/* tabs: */
+/* ===== */
+
+#newAlertRuleDirective .modal-content .tabs{
+    background-color:var(--black);
+    text-transform: uppercase;
+}
+
+#newAlertRuleDirective .modal-content .tabs .selectedTab{
+    background-color:var(--gray);
+}
+
+#newAlertRuleDirective .modal-content .innerTabs{
+    text-align: center;
+    margin-top: 32px;
+}
+
+/* ============ */
+/* .section */
+/* ============ */
+#newAlertRuleDirective .modal-content .section{
+    border-bottom: 2px var(--black) solid;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 24px;
+}
+
+#newAlertRuleDirective .modal-content .section .element{
+    width : 49%;
+    display:inline-block;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#newAlertRuleDirective .modal-content .section  .wiseText4{
+    text-transform: capitalize;
+}
+
+#newAlertRuleDirective .modal-content .section  .shutdownParamsElement{
+    vertical-align: text-top;
+}
+
+#newAlertRuleDirective .modal-content .section .switchElement{
+    text-align: center;
+}
+
+#newAlertRuleDirective .modal-content .section .switchElement wise-switch{
+    margin-right:10px;
+    margin-left:10px;
+    display: inline-block;
+}
+
+#newAlertRuleDirective .modal-content .section .element .tableCell{
+    width : 40%;
+    display:inline-block;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+#newAlertRuleDirective .modal-content .section .element .radioButtonsShutdown,
+#newAlertRuleDirective .modal-content .section .element .setSupplySourceInactive{
+    vertical-align: text-top;
+}
+
+#newAlertRuleDirective .modal-content .section .element .radioButtonsShutdown .radioButton {
+    margin-right:100px;
+}
+
+
+#newAlertRuleDirective .modal-content .section .element .lastHoverInput,
+#newAlertRuleDirective .modal-content .section .element .daliyLossInput {
+    width:50px;
+}
+
+#newAlertRuleDirective span.description{
+    margin-left : 80px;
+    margin-right : 20px;
+}
+#newAlertRuleDirective span.ruleName{
+    margin-right : 87px;
+}
+
+#newAlertRuleDirective .modal-content textArea {
+    vertical-align: text-top;
+    width:286px;
+    border:none;
+    border-bottom: 1px solid white;
+    background:transparent;
+    color:white;
+}
+
+#newAlertRuleDirective .modal-content .clauseValue {
+    padding-bottom: 6px;
+    margin-left:20px;
+
+}
+
+#newAlertRuleDirective .modal-content .filtersLoader {
+    text-align: -webkit-center;
+}
+
+#newAlertRuleDirective .modal-content .newAlertRule.tableWrapper {
+    margin-left : 20px;
+    margin-right : 20px;
+}
+
+
+/* ================ */
+/* Last section */
+/* ================ */
+#newAlertRuleDirective .modal-content .lastSection{
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+#newAlertRuleDirective .modal-content .lastSection .saveBtn{
+    float: right;
+}
+
+
+#newAlertRuleDirective img.add{
+    width:20px; 
+    margin-bottom : -10px;
+    margin-left: 20px;
+}   
+
+
+#newAlertRuleDirective img.add{
+    width:20px; 
+    margin-bottom : -10px;
+    margin-left: 20px;
+}
+
+#newAlertRuleDirective img.delete{
+    margin-bottom : -10px;
+    margin-left: 20px;
+}
+#newAlertRuleDirective .operators{
+    margin-left: 20px;
+}
+#newAlertRuleDirective .clause{
+    margin-bottom: 10px;
+}
+
+#newAlertRuleDirective wise-select.timePeriodUnit{
+   margin-right:10px;
+   margin-left:84px;
+}
+#newAlertRuleDirective wise-select.runEveryUnit{
+   margin-right:10px;
+    margin-left:64px;
+}
+
+#newAlertRuleDirective .filterSection wise-select{
+   margin-right:10px;
+}
+
+#newAlertRuleDirective .filterSection wise-select.entity{
+   margin-right:0px;
+    margin-left: 42px;
+}
+
+
+
+

@@ -1,0 +1,75 @@
+<button class="wiseCustomDateDirective wiseText6"
+     ng-init="showCustomDate = false" deep-blur="showCustomDate = false">
+
+    <!--data-ng-mouseleave="showCustomDate = false"-->
+    <!-- data-ng-mouseenter="showCustomDate = true"-->
+
+
+    <div class="dropDown" ng-click="showCustomDate = !showCustomDate">
+        {{getDropDownLabel()}}
+    </div>
+    <img class="arrowIcon" src="/resources/images/select_arrow_hover.svg"> 
+
+
+    <div>
+        <div class="dateContainer" data-ng-repeat="currentMonth in currentDisplayData" data-ng-show="showCustomDate">
+            <div class="top">
+                <img class="prev navArrow" data-ng-if="$index==0"  data-ng-src="/resources/images/{{prev}}" data-ng-click="prevMonth()"   data-ng-init="prev='prev.svg'" data-ng-mouseleave="prev='prev.svg'" data-ng-mouseenter="prev='prev_hover.svg'">
+                {{monthNames[currentMonth.date.getMonth()]}} {{currentMonth.date.getFullYear()}}
+                <img class="next navArrow"  data-ng-if="$index==1" data-ng-src="/resources/images/{{next}}" data-ng-click="nextMonth()"   data-ng-init="next='next.svg'" data-ng-mouseleave="next='next.svg'" data-ng-mouseenter="next='next_hover.svg'">
+            </div>
+            <hr>
+
+            <div>
+                <div data-ng-repeat="title in tablesColTitle" class="dayDiv">
+                    {{title}}
+                </div>
+                <div data-ng-repeat="dayData in currentMonth.days track by $index"  
+                    class="dayDiv {{getDayClass(currentMonth, dayData)}} " 
+                    data-ng-class="{'dayDivHover': dayData!=null && !futureDate(dayData), 'futureDate' : futureDate(dayData)}"
+                    data-ng-click="!futureDate(dayData) && clickDay(currentMonth, dayData)" 
+                    data-ng-mouseover="!futureDate(dayData) && hoverDay(currentMonth, dayData)">
+                    <div data-ng-if="dayData!=null" >  {{dayData.getDate()}} </div>
+                    <div data-ng-if="dayData==null"> &nbsp </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="selectSection">
+                <wise-select
+                    type="regular"
+                    options="hourOptions[currentMonth.selectedTime.timeType.label]"
+                    selected-data="currentMonth.selectedTime.hour"
+                    width="45px"
+                    disabled-input=true>
+                </wise-select>
+
+                <wise-select
+                    type="regular"
+                    options="minuteOptions"
+                    selected-data="currentMonth.selectedTime.minute"
+                    width="45px"
+                    disabled-input=true>
+                </wise-select>
+
+                <wise-select
+                    type="regular"
+                    data-ng-click="checkHour()"
+                    options="timeTypeOptions"
+                    selected-data="currentMonth.selectedTime.timeType"
+                    width="45px"
+                    disabled-input=true>
+                </wise-select>
+            </div>
+            
+            <div class="currentDate" >
+                {{getFinalDateLabel($index)  + " " + currentMonth.selectedTime.hour.label + ":" + currentMonth.selectedTime.minute.label + " " + currentMonth.selectedTime.timeType.label}}
+            </div>
+
+            
+        </div>
+    </div>
+
+ 
+
+</button>

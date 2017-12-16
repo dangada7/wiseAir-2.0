@@ -1,0 +1,231 @@
+#analysisDayPart .secondSection  {
+}
+
+#analysisDayPart .secondSection .reportType {
+}
+
+#analysisDayPart .secondSection .filtersDiv{
+    display:inline-table;
+    padding-top: 48px;
+    padding-right : 16px;
+}
+
+#analysisDayPart .secondSection .dateFiltersDiv{
+    display:inline-table;
+    padding-top: 48px;
+    margin-right:150px;
+}
+
+#analysisDayPart .secondSection .filtersBtnsDiv{
+    float: right;
+    margin-top: -30px;
+}
+
+#analysisDayPart .secondSection  .filterWrapper{
+    display: inline-block;
+    vertical-align:top;
+    padding-top:10px;
+    padding-right:6px;
+}
+
+#analysisDayPart .secondSection .filtersDiv .filterWrapper{
+
+}
+
+#analysisDayPart .secondSection .wiseLoaderWrapper {
+    text-align: -webkit-center;
+}
+
+
+
+/*
+#analysisDayPart .secondSection .filtersDiv{
+    width: calc(100% - 360px);
+    display:inline-table;
+    padding-top:20px
+}
+
+#analysisDayPart .secondSection .dateFiltersDiv{
+    display:inline-table;
+}
+
+#analysisDayPart .secondSection .filtersBtnsDiv{
+    position: absolute;
+    top: 315px;
+    right: 10%;
+    margin-right: 8px;
+}
+
+#analysisDayPart .secondSection  .filterWrapper{
+    display: inline-block;
+    padding-top:6px;
+    padding-right:6px;
+}
+
+#analysisDayPart .secondSection .filtersDiv .filterWrapper{
+    min-width:20%
+}
+
+
+
+
+
+#analysisDayPart .secondSection .filtersDiv input.domain{
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 170px;
+}
+
+#analysisDayPart .secondSection .filtersDiv input.domain::-webkit-input-placeholder {
+    color: white !important;
+}*/
+
+/* ------------- */
+/* body section: */
+/* ------------- */
+#analysisDayPart .bodySection {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+#analysisDayPart .bodySection .wiseTitle1{
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+/* loader */
+#analysisDayPart .bodySection .wiseLoaderWrapper {
+    text-align: -webkit-center;
+    margin-top: 60px;
+    padding-bottom: 48px;
+}
+
+#analysisDayPart .bodySection .wiseLoader {
+    display: inline-block;
+    margin-top:50px;
+}
+
+/*selects */
+#analysisDayPart .bodySection .selectsDiv {
+    text-align: center;
+
+}
+#analysisDayPart .bodySection .selectsDiv wise-select:first-child{
+    margin-right: 138px;
+}
+
+
+
+/*tables*/
+#analysisDayPart .bodySection .tables {
+    text-align: center;
+}
+#analysisDayPart .bodySection .tables th {
+    color:#333333;
+}
+
+#analysisDayPart .bodySection table {
+    display: inline-table;
+    cursor: pointer;
+}
+
+#analysisDayPart table tr td{
+    min-width:70px;
+    text-align: center;
+    height:20px;
+}
+
+#analysisDayPart .bodySection table {
+    border-spacing: 0px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width:100%
+}
+
+#analysisDayPart .bodySection td {  
+    border-top: .5px solid #333333;
+    border-collapse: collapse;
+    color:#333333;
+}
+
+#analysisDayPart .bodySection td.time {
+    /*color:white;*/
+    color:#333333;
+    border:none;
+    padding-left:16px;
+    padding-right:16px;
+    min-width:80px;
+}
+
+
+#analysisDayPart .bodySection th {
+    border: none;
+    padding-bottom:12px;
+}
+
+#analysisDayPart .bodySection table .highlightTh{
+   /*color: #333333;*/
+   color:white;
+}
+#analysisDayPart .bodySection table .highlightTd{
+   color: white;
+}
+
+#analysisDayPart .bodySection table .noBorder{
+    border : none !important;
+    padding-bottom:30px;
+}
+
+
+#analysisDayPart .bodySection table .firstRow{
+    border-top: 2px solid #333333!important;
+}
+
+#analysisDayPart .bodySection table .lastRow{
+    border-bottom: 2px solid #333333!important;
+}
+
+
+
+
+/*
+
+#analysisDayPart .bodySection .tablesColors  {
+    display: inline-block;
+    margin-bottom: 10px;
+    width:50%;
+    text-align:center;
+}
+
+/* colors
+#analysisDayPart .bodySection .tablesColors .color {
+    height: 40px;
+    width: 60px;
+    border:1px solid black;
+}*/
+
+#analysisDayPart .bodySection  .val1 {
+	background-color: #E95A4D;
+	/*background-color: gray;*/
+}
+#analysisDayPart .bodySection  .val2 {
+	background-color: #A0564E;
+	/*background-color: #5d5d5d;*/
+}
+
+#analysisDayPart .bodySection  .val3 {
+    background-color:#7A5550;
+    /*background-color:#3e3e3e;*/
+}
+#analysisDayPart .bodySection  .val4 {
+    background-color:#4F745D;
+}
+#analysisDayPart .bodySection  .val5 {
+    background-color:#45D881;
+}
+
+#analysisDayPart wise-custom-date .wiseCustomDateDirective .dropDown{
+    margin-top:32px;
+}

@@ -1,0 +1,26 @@
+<div id="userLogin" >
+
+
+    <div >
+        <div>
+            <img src="/resources/images/logo.png" class="logo">
+        </div>
+        <div class="btnWrapper">
+            <input data-ng-keypress="keyPress($event)" class="wiseTitle1" data-ng-model="username" placeholder="{{userPlaceholder}}" data-ng-init="userPlaceholder='*USER NAME'"data-ng-focus="userPlaceholder=''" data-ng-blur="userPlaceholder='*USER NAME'">
+            <input data-ng-keypress="keyPress($event)" class="wiseTitle1" placeholder="{{passPlaceholder}}" data-ng-model="password" type="password" data-ng-init="passPlaceholder='*PASSWORD'"data-ng-focus="passPlaceholder=''" data-ng-blur="passPlaceholder='*PASSWORD'">
+            <div class="loginBtn wiseTitle1" data-ng-click="login()"> LOGIN</div>
+            <div class="forgatPass wiseTitle1" data-ng-click="forgotPass()"> FORGOT PASSWORD</div>
+        </div>
+    </div>
+
+
+    <wise-alert-popup
+        text="alertMessage"
+        show-popup="showAlertPopup"
+        severity="alertSeverity"
+        title="alertTitle">
+    </wise-alert-popup>
+
+</>
+
+

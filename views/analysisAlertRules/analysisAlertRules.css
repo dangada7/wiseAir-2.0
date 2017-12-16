@@ -1,0 +1,59 @@
+/*
+#analysisAlertRules .dirWiseTable table tr {
+    border: solid #555453 ;
+    border-width: 1px 0 ;
+}*/
+
+#analysisAlertRules {
+    height  : calc(100vh - 50px);
+    background-color : #333333
+}
+
+
+#analysisAlertRules .createNewBtn{
+    float:right;
+    margin-top:-62px;
+}
+
+
+#analysisAlertRules .dirWiseTable table .tableTotalsRow {
+    border-bottom: none;
+    border-top: 2px solid white;
+}
+
+#analysisAlertRules .dirWiseTable table .tableTitlesRow {
+    border-top: none;
+    border-bottom: 2px solid white;
+}
+
+
+/* ============= */
+/* Close Button: */
+/* ============= */
+#analysisAlertRules .modal-content .close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -45px;
+    margin-right: 12px;
+}
+
+#analysisAlertRules .modal-content .close:hover,
+#analysisAlertRules .modal-content .close:focus {
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ===== */
+/* tabs: */
+/* ===== */
+
+#analysisAlertRules .modal-content .tabs{
+    background-color:var(--black);
+}
+
+#analysisAlertRules .modal-content .tabs .selectedTab{
+    background-color:var(--gray);
+}

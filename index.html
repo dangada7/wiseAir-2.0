@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head data-ng-init="version='?v=3.526'">
+
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+        <!-- PACKAGES -->
+        <script src="packages/angular.min.js"></script>
+        <script src="packages/angular-route.min.js"></script>
+        <script src="packages/ocLazyLoad.min.js"></script>
+        <script src="packages/highcharts/highcharts.js"></script>
+        <script src="packages/highcharts/modules/heatmap.js"></script>
+        <script src="packages/highcharts/modules/no-data-to-display.js"></script>
+        <script src="packages/highcharts/highcharts-more.js"></script>
+        <script src="packages/highcharts/modules/exporting.js"></script>
+        <script src="packages/angular-drag-and-drop-lists.js"></script>
+        <script src="packages/moment.js"></script>
+        <script src="packages/moment-timezone-with-data.js"></script>
+        <script src="packages/angular-deep-blur.js"></script>
+
+        <!-- STYLE FILES -->
+        <link rel="stylesheet" ng-href="style/mainStyle.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseTextStyle.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseButtons.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseView.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseLoader.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseDropdown.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseComplexDropdown.css{{version}}">
+        <link rel="stylesheet" ng-href="style/wiseScroll.css{{version}}">
+
+        <!-- MISC SCRIPT FILES -->
+        <script src="miscScripts/routingConfig.js?v=3.526"></script>
+        <script src="miscScripts/serverAPI_service.js?v=3.526"></script>
+        <script src="miscScripts/currentTime_service.js?v=3.526"></script>
+        <script src="miscScripts/mock_service.js?v=3.526"></script>
+        <script src="miscScripts/processData_service.js?v=3.526"></script>
+        <script src="miscScripts/rootScope_service.js?v=3.526"></script>
+        <script src="miscScripts/textManipulation.js?v=3.526"></script>
+        <script src="miscScripts/exportFile_service.js?v=3.526"></script>
+        <!-- TODO: lazy load this file-->
+        <script src="miscScripts/mockData_service.js?v=3.526"></script>
+
+        <!-- NAVIGATION BAR -->
+        <script src="views/navigationBar/navigationBar.js?v=3.526"></script>
+        <link rel="stylesheet" href="views/navigationBar/navigationBar.css?v=3.526">
+
+        <!-- DIRECTIVES -->
+        <script src="directives/wiseTableDirective/wiseTableDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseTableDirective/wiseTableDirective.css?v=3.526">
+        <script src="directives/wiseChartDirective/wiseChartDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseChartDirective/wiseChartDirective.css?v=3.526">
+        <script src="directives/wiseSelectDirective/wiseSelectDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseSelectDirective/wiseSelectDirective.css?v=3.526">
+        <script src="directives/wiseSwitchDirective/wiseSwitchDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseSwitchDirective/wiseSwitchDirective.css?v=3.526">
+        <script src="directives/wisePopupDirective/wisePopupDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wisePopupDirective/wisePopupDirective.css?v=3.526">
+        <script src="directives/wiseCustomDateDirective/wiseCustomDateDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseCustomDateDirective/wiseCustomDateDirective.css?v=3.526">
+        <script src="directives/wiseAlertPopupDirective/wiseAlertPopupDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wiseAlertPopupDirective/wiseAlertPopupDirective.css?v=3.526">
+        <script src="directives/wisePageLoaderDirective/wisePageLoaderDirective.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/wisePageLoaderDirective/wisePageLoaderDirective.css?v=3.526">
+        <script src="directives/newAlertRule/newAlertRule.js?v=3.526"></script>
+        <link rel="stylesheet" href="directives/newAlertRule/newAlertRule.css?v=3.526">
+
+        <!-- typekit -->
+        <script src="https://use.typekit.net/gbg7pbz.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    </head>
+
+    <body id="body" ng-app="myApp">
+        
+        <div data-ng-include="'views/navigationBar/navigationBar.html'"
+             data-ng-controller="navigationBarController">
+        </div>
+
+        <div class="content" ng-view>
+        </div>
+
+        <wise-alert-popup >
+        </wise-alert-popup >
+
+        <wise-page-loader>
+        </wise-page-loader>
+
+    </body>
+</html>

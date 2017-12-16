@@ -1,0 +1,81 @@
+<div class="dirWiseChart">
+    <div class="wiseTitle1">
+        {{chartTitle}}
+    </div>
+    
+    <div class="wiseSwitchDiv" data-ng-show="chartData != null && !showLoader">
+        
+        <!-- Granularity -->
+        <span data-ng-show="showGranularity" class="wiseText6 granularityText" > Granularity </span>
+        <wise-select
+            data-ng-click="granularitySelectClick=true"
+            show-filter-drop-down="granularitySelectShowDropDown"
+            data-ng-show="showGranularity"
+            type="regular"
+            width="100px"
+            options="chartData.granularityOptions"
+            attribute="label"
+            selected-data="selectedGranularity"
+            disabled-input=true>
+        </wise-select>
+        
+        <!-- Y1 -->
+        <!--<span data-ng-show="showMeasure1 && showMeasure2" class="wiseText6" > Y1 </span>-->
+        <wise-select
+            data-ng-click="measure1SelectClick=true"
+            show-filter-drop-down="measure1SelectShowDropDown"
+            data-ng-show="showMeasure1"
+            type="regular"
+            width="170px"
+            options="chartData.measuresOptions"
+            attribute="label"
+            selected-data="selectedMeasure1"
+            disabled-input=true>
+        </wise-select>
+        
+        <!-- Y2 -->
+        <!--<span data-ng-show="showMeasure2" class="wiseText6" > Y2 </span>-->
+        <wise-select
+            data-ng-click="measure2SelectClick=true"
+            show-filter-drop-down="measure2SelectShowDropDown"
+            data-ng-show="showMeasure2"
+            type="regular"
+            width="170px"
+            options="chartData.measuresOptions"
+            attribute="label"
+            selected-data="selectedMeasure2"
+            disabled-input=true>
+        </wise-select>
+
+        <!-- SWITCH -->
+        <wise-switch
+            data-ng-show="showCompareSwitch"
+            label="Compare"
+            on-change-call-back="onClickCompare()"
+            status="compareSwitchStatus"
+            show-loader="showCompareLoader"
+            width="100px">
+        </wise-switch>
+
+    </div>
+
+    <div id="{{chartClassId}}" class="chart" data-ng-show="!showLoader"> </div>
+
+    <div class="wiseLoaderWrapper wiseText2" data-ng-show="showLoader">
+        <div class="wiseLoader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div> <br>
+        LOADING
+    </div>
+
+    <div class="noDataDiv" data-ng-show="!showLoader && chartData == null">
+        <div>
+            <img src="/resources/images/alert_yellow.svg">
+            <span> NO DATA FOUND </span>
+        </div>
+    </div>
+
+
+</div>

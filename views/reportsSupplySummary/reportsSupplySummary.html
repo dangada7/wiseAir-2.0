@@ -1,0 +1,155 @@
+<div class="wiseView" id="reportSupplySummary">
+    
+    <!-- FIRST SECTION -->
+    <div class="firstSection">
+        <div class=wiseTitle1>
+            REPORTS / SUPPLY SUMMARY
+        </div>
+    </div>
+    
+    <!-- SECOND SECTION -->
+    <div class="secondSection">
+
+        <div>
+            <!-- filters div-->
+            <div class="filtersDiv"  data-ng-show="!showFiltersLoader">
+                <div class="wiseText3"> Filters </div>
+
+                <span data-ng-repeat="filterData in filtersData" >
+
+                    <span class="filterWrapper">
+                        <wise-select
+                            placeholder="{{filterData.placeholder}}"
+                            type="{{filterData.type}}"
+                            options="filterData.options"
+                            selected-data="filterData.selectedData"
+                            width="170px"
+                            disabled-input="filterData.inputDisabled">
+                        </wise-select>
+                    </span>
+
+                    <br data-ng-if="$index == 2">
+                </span>
+            </div>
+
+            <!-- date filters div-->
+            <div class="dateFiltersDiv"  data-ng-show="!showFiltersLoader">
+            <div class="wiseText3"> Dates </div>
+
+            <div data-ng-repeat="filterDateData in filtersDateData" class="filterWrapper"> 
+                <wise-select
+                    placeholder="{{filterDateData.placeholder}}"
+                    type="regular"
+                    attribute="{{filterDateData.objectKey}}"
+                    options="filterDateData.options"
+                    selected-data="filterDateData.selectedData"
+                    width="110px">
+                </wise-select>
+            </div>
+            <br>
+            <wise-custom-date selected-date=filtersDateData.date.custom data-ng-show="showCustomDate()" clear="clearCustom"> </wise-custom-date>
+        </div>
+        </div>
+
+        <div class="filtersBtnsDiv" data-ng-show="!showFiltersLoader">
+            <div class="wiseBtn1" data-ng-click="clear()"> CLEAR </div>
+            <div class="wiseBtn1" data-ng-click="updateClick()"> UPDATE </div>
+            <!--<img class="exportBtn" src="/resources/images/export.svg">-->
+        </div>
+
+        <div class="wiseLoaderWrapper wiseText4" data-ng-show="showFiltersLoader">
+            <div class="wiseLoader2">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div>
+            LOADING
+        </div>
+    </div>
+
+    <!-- SUPPLY SOURCES TABLE -->
+    <div class="bodySection" data-ng-show="firstClickOnUpdate">
+        <wise-table 
+            info-text="Select a Supply Source to see its Domains & Demand Sources"
+            table-title="'SUPPLY SOURCES'"
+            table-data="supplySourceTableData"
+            show-loader="supplySourceShowLoader"
+            update-table="updateSupplySourceTable"
+            show-compare-switch=showTableCompare
+            show-full-switch=true
+            on-row-click="onSupplySourceRowClickCallBack(att)"
+            row-clickable=true
+            show-export-btn=true
+            show-total=true
+            table-style="style1"
+            on-click-compare-call-back="onClickCompareSupplySourcesTable()"
+            show-compare-switch-loader="showSupplySourceCompareSwitchLoader"
+        > 
+        </wise-table>
+    </div>
+
+    <div class="wiseSeparator" data-ng-show="firstClickOnUpdate"> </div>
+    
+    <!-- PERFORMANCE CHART -->
+    <div class="bodySection chartSection" data-ng-show="firstClickOnUpdate">
+        <wise-chart 
+            chart-title="'PERFORMANCE OVER TIME'"
+            chart-data="chartData"
+            recreate-chart="updateChart"
+            chart-class-id="supplyChart"
+            show-granularity=true
+            show-measure1=true
+            show-measure2=true
+            show-compare-switch=showTableCompare
+            show-loader = "chartShowLoader"
+            show-compare-loader="chartShowCompareLoader"
+            on-click-compare-call-back="onClickCompareChart()">
+        </wise-chart>
+    </div>
+
+    <!-- DOMIANS AND DEMAND SOURCE -->
+    <div data-ng-show="showDomainsAndDemandSources">
+        <div class="wiseSeparator"> </div>
+
+        <!-- DOMAIN TABLE -->
+        <div class="bodySection">
+            <wise-table
+                info-text="Select a Domain to see its Demand Sources"
+                table-title="domainsTableTitle"
+                table-data="domainsTableData"
+                show-loader="domainsShowLoader"
+                update-table="updateDomainsTable"
+                show-compare-switch=showTableCompare
+                show-full-switch=true
+                on-row-click="rowClickDomainsCallBack(att)"
+                row-clickable=true
+                show-export-btn=true
+                show-total=true
+                on-click-compare-call-back="onClickCompareDomainsTable()"
+                show-compare-switch-loader="domainsShowLoaderCompareSwitchLoader"
+                table-style="style1">
+            </wise-table>
+
+
+        </div>
+
+        <div class="wiseSeparator"> </div>
+
+        <!-- DEMAND SOURCES -->
+        <div class="bodySection">
+            <wise-table 
+                table-title="demandSourcesTableTitle"
+                table-data="demandSourcesTableData"
+                show-loader="demandSourcesShowLoader"
+                update-table="updateDemandSourcesTable"
+                show-compare-switch=showTableCompare
+                show-export-btn=true
+                show-total=true
+                on-click-compare-call-back="onClickCompareDemandSourcesTable()"
+                show-compare-switch-loader="demandSourcesCompareShowLoader"
+                table-style="style1">
+            </wise-table>
+        </div>
+    </div>
+
+</div>

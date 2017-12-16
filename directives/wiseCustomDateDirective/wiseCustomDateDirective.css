@@ -1,0 +1,109 @@
+.wiseCustomDateDirective {
+    z-index:10;
+    position : absolute;
+
+    display:inline-block;
+    width:inherit;
+    /*border-bottom: solid white 1px;*/
+    text-align:left;
+    border: none;
+    background: transparent;
+    color: white;
+        padding: 0px;
+
+}
+
+.wiseCustomDateDirective:focus {
+    outline:none;
+}
+
+
+.wiseCustomDateDirective  .dateContainer{
+    width:155px;
+    display: inline-block;
+    padding: 8px;
+    background-color:var(--gray);
+    padding:10px;
+}
+
+.wiseCustomDateDirective .top{
+    text-align:center;
+}
+
+.wiseCustomDateDirective .dropDown{
+    border-bottom: white solid 1px;
+    padding-bottom:4px;
+    width:228px;
+    display:inline-block;
+    margin-top:12px;
+}
+
+.wiseCustomDateDirective .arrowIcon {
+    display: inline-block;
+    margin-left: -16px;
+}
+
+.wiseCustomDateDirective .futureDate{
+    background-color: #333333!important;
+    border-radius: 0px!important;
+    cursor: auto!important;
+}
+
+
+.wiseCustomDateDirective .dayDiv {
+    display:inline-block;
+    width:14px;
+    text-align: center;
+    padding:4px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.wiseCustomDateDirective .dayDivHover:hover {
+    background-color: var(--yellow);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.wiseCustomDateDirective .selectedMiddle {
+    background-color: white;
+    color: var(--black);
+}
+.wiseCustomDateDirective .selectedStart {
+    background-color: white;
+    color: var(--black);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.wiseCustomDateDirective .selectedEnd {
+    background-color: white;
+    color: var(--black);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.wiseCustomDateDirective .prev {
+    float: left;
+}
+
+.wiseCustomDateDirective .next {
+    float: right;
+}
+
+.wiseCustomDateDirective .selectSection {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.wiseCustomDateDirective .selectSection wise-select{
+    margin:2px;
+}
+
+.wiseCustomDateDirective .currentDate{
+        border: 1px solid white;
+    text-align: center;
+    margin-top: 12px;
+    padding: 3px;
+}

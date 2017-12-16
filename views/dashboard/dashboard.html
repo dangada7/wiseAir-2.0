@@ -1,0 +1,205 @@
+<div id="dashboard" class="wiseView wiseBackgroundColor1" >
+
+    <!-- first section -->
+    <div class="firstSection">
+        
+        <div class="wiseTitle1"> DASHBOARD </div>
+       
+        <div class="filters" data-ng-show="!showFilterLoader">
+
+
+            <!-- SUPPLY PLATFORMS-->
+            <wise-select
+                placeholder="Supply Platforms"
+                type="multiple_dashboard"
+                options="filtersData.supplyPlatforms.options"
+                selected-data="filtersData.supplyPlatforms.selectedData"
+                width="200px"
+                disabled-input=true>
+            </wise-select>
+
+            <!-- DEMAND PLATFORMS-->
+            <wise-select
+                placeholder="Demand Platforms"
+                type="multiple_dashboard"
+                options="filtersData.demandPlatforms.options"
+                selected-data="filtersData.demandPlatforms.selectedData"
+                width="200px"
+                disabled-input=true>
+            </wise-select>
+
+            <!-- timezone -->
+            <wise-select
+                type="regular"
+                width="80px"
+                options="filtersData.timezone.options"
+                selected-data="filtersData.timezone.selectedData"
+                disabled-input=true>
+            </wise-select>
+
+            <!-- DATE-->
+            <wise-select
+                type="regular"
+                width="80px"
+                options="filtersData.date.options"
+                attribute="reg"
+                selected-data="filtersData.date.selectedData"
+                disabled-input=true>
+            </wise-select>
+
+            <div class="wiseBtn2 wiseText4 updateBtn" data-ng-click="updateBtn()"> UPDATE </div>
+
+
+            <!-- UPDATE -->
+            <div class="rightFilters">
+                <img data-ng-click="downloadCSV()" data-ng-src="\resources\images\{{exportKPI_icon}}"
+                    data-ng-init="exportKPI_icon='export.svg'"
+                    data-ng-mouseleave="exportKPI_icon='export.svg'"
+                    data-ng-mouseover="exportKPI_icon='export_hover.svg'"
+                    class="exportBtn2">
+
+                <!-- SWITCH -->
+                <wise-switch
+                    label="Compare"
+                    ng-attr-title="{{compareTooltip}}"
+                    status="KPICompareStatus"
+                    on-change-call-back="getKPIsCompareData()"
+                    show-loader="showKPIsCompareLoader">
+                </wise-switch>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="kpiLoaderWrapper wiseText4" data-ng-show="showFilterLoader">
+                <div class="wiseLoader2">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                    </svg>
+                </div>
+                LOADING
+            </div>
+        </div>
+
+    </div>
+
+    <!-- KPI SECTION -->
+    <div class="secondSection wiseBackgroundColor2" dnd-list="KPIsData">
+
+        <div class="kpi"
+            data-ng-class="{'leftKpi' : ($index%6 == 0) , 'rightKpi' : ($index%6 == 5)}"
+            data-ng-show="!showKPIsLoader"
+            dnd-draggable="KPIData"
+            dnd-moved="KPIsData.splice($index, 1) && saveKpiReorder()"
+            dnd-effect-allowed="move"
+            data-ng-repeat="KPIData in KPIsData">
+
+            <div class="wiseText2"> {{KPIData.title}} </div>
+            <hr>
+            <div class="value wiseText1"> {{formatKPI(KPIData.val,KPIData.name)}} </div>
+
+            <div
+                data-ng-show="KPICompareStatus && KPIData.compareVal != null"
+                class="wiseText5"
+                data-ng-class="{'textColorIncrease' : KPIData.val > KPIData.compareVal, 'textColorDecrease' : KPIData.val < KPIData.compareVal}">
+                {{dateCompareText + ' ' + formatKPI(KPIData.compareVal,KPIData.name)}}
+                <img  src="/resources/images/report_arrow_up.svg"   data-ng-show="KPIData.val > KPIData.compareVal">
+                <img  src="/resources/images/report_arrow_down.svg" data-ng-show="KPIData.val < KPIData.compareVal">
+            </div>
+        </div>
+
+        <div>
+            <div class="wiseLoaderWrapper wiseText4" data-ng-show="showKPIsLoader">
+                <div class="wiseLoader">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                    </svg>
+                </div>
+                LOADING
+            </div>
+        </div>
+
+        <div class="moreInfoDiv wiseText5 textColorWarning" data-ng-show="!showKPIsLoader">
+            <img src="/resources/images/info_hover.svg" >
+            Drag & Drop to reorder KPIs
+        </div>
+    </div>
+
+    
+    <div class="bodySection" ng-class="{'small':!isBig, 'big':isBig}">
+
+        <div class="icon_div"  ng-click="isBig = !isBig">
+            
+            <img    data-ng-src="{{KPI_Expand}}"
+                    data-ng-show="!isBig"
+                    data-ng-init="KPI_Expand='resources/images/KPI_Expand.svg'"
+                    data-ng-mouseover="KPI_Expand='resources/images/KPIExpandHover.svg'"
+                    data-ng-mouseleave="KPI_Expand='resources/images/KPI_Expand.svg'">
+
+            <img    src="{{KPI_Collapse}}"
+                    data-ng-show="isBig"
+                    data-ng-init="KPI_Collapse='resources/images/KPI_Collapse.svg'"
+                    data-ng-mouseover="KPI_Collapse='resources/images/KPICollapseHover.svg'"
+                    data-ng-mouseleave="KPI_Collapse='resources/images/KPI_Collapse.svg'">
+        </div>
+
+
+        <wise-chart
+            show-compare-loade"false"
+            data-ng-show="!showChartsLoader"
+            chart-title="'Performance Comparison'"
+            chart-data="performanceChartData" 
+            chart-class-id="performanceChart"
+            show-measure1=true
+            show-loader="performanceChartShowLoader"
+            recreate-chart="reCreatePerformanceChart"
+            init-compare-switch-status="true"
+            Chart-with-out-measure-label=true
+
+        > </wise-chart>
+
+        <div data-ng-show="!showChartsLoader" >
+            <wise-chart
+                show-compare-loade"false"
+                id="todayPerformanceChartDir"
+                chart-title="dateText.toUpperCase() + '\'s PERFORMANCE'"
+                chart-data="todayPerformanceChartData"
+                chart-class-id="todayPerformanceChart"
+                show-granularity=true
+                default-select-measures-id = "[4,5,6]"
+                show-loader = "todayPerformanceChartShowLoader"
+                recreate-chart = "reCreateTodayPerformanceChart">
+                </wise-chart>
+
+            <wise-chart
+                show-compare-loade"false"
+                id="todayFinanceChartDir"
+                chart-title="dateText.toUpperCase() + '\'s FINANCE'"
+                chart-data="todayFinanceChartData"
+                chart-class-id="TodayFinanceChart"
+                show-granularity=true
+                default-select-measures-id = "[1,2,3]"
+                show-loader = "todayFinanceChartShowLoader"
+                recreate-chart = "reCreateTodayFinanceChart">
+                </wise-chart>
+         </div>
+
+
+            <div>
+                <div class="chartLoaderWrapper wiseText4" data-ng-show="showChartsLoader">
+                    <div class="wiseLoader">
+                        <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                    LOADING
+                </div>
+            </div>
+
+    </div>
+
+
+
+
+
+</div>

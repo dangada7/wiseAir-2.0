@@ -1,0 +1,39 @@
+<div id="analysisAlertRules" class="wiseView">
+     
+    <div class="firstSection" data-ng-init="currentTabName = 'supplySources'">
+        <div class=wiseTitle1>
+            ANALYSIS / ALERT RULES
+        </div>
+
+        <div
+                data-ng-show="!showTableLoader"
+                class="wiseBtn2 wiseTitle1 createNewBtn"
+                data-ng-click="clickNewAlertRuleButton()"
+                data-ng-mouseleave="createBtn='createNew.svg'"
+                data-ng-mouseenter="createBtn='createNewHover.svg'">
+                NEW ALERT RULE
+            <img data-ng-init="createBtn='createNew.svg'"  data-ng-src="/resources/images/{{createBtn}}">
+        </div>
+
+    </div>
+
+    <div class="secondSection">
+        
+
+
+        <wise-table 
+            table-data="alertData"
+            show-loader="showTableLoader"
+            table-style="style2"
+            update-table="updateAlertTable"
+            click-save-call-back="getAlertTable()"
+        > 
+        </wise-table>
+    </div>
+
+    <new-alert-rule
+            show="showPopup">
+    </new-alert-rule>
+
+
+</div>

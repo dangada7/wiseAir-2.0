@@ -1,0 +1,79 @@
+<div id="manageDemand" class="wiseView">
+
+    <div class="firstSection">
+        <div class=wiseTitle1>
+            MANAGE / DEMAND
+        </div>
+
+        <div    class="wiseTitle2 navBtn"
+                data-ng-class="{'selectedNavBtn' : currentTab == 'demandSourcesTab'}"
+                data-ng-click="currentTab = 'demandSourcesTab' ; updateTable = updateTable + 1">
+                DEMAND SOURCES
+        </div>
+        <!--<div    class="wiseText3 navBtn"-->
+                <!--data-ng-class="{'selectedNavBtn' : currentTab == 'creativesTab'}"-->
+                <!--data-ng-click="currentTab = 'creativesTab'; updateTable = updateTable + 1">-->
+                <!--CREATIVES-->
+        <!--</div>-->
+        <div    class="wiseTitle2 navBtn"
+                data-ng-class="{'selectedNavBtn' : currentTab == 'demandPartnersTab'}"
+                data-ng-click="currentTab = 'demandPartnersTab'; updateTable = updateTable + 1">
+                DEMAND PARTNERS
+        </div>
+        <div    class="wiseTitle2 navBtn"
+                data-ng-class="{'selectedNavBtn' : currentTab == 'demandPlatformsTab'}"
+                data-ng-click="currentTab = 'demandPlatformsTab'; updateTable = updateTable + 1">
+                DEMAND PLATFORMS
+        </div>
+
+        <!--<div    class="wiseBtn2 wiseTitle2 createNewBtn"
+                data-ng-if="pageData[currentTab].btnText != null"
+                data-ng-show="!pageData[currentTab].tableShowLoader"
+                data-ng-click="pageData[currentTab].showPopup=true"
+                data-ng-mouseleave="createBtn='createNew.svg'"
+                data-ng-mouseenter="createBtn='createNewHover.svg'">
+            {{pageData[currentTab].btnText}}
+            <img class="createNew" data-ng-init="createBtn='createNew.svg'"  data-ng-src="/resources/images/{{createBtn}}">
+        </div>-->
+
+    </div>
+
+
+    <div class="secondSection">
+
+
+        <wise-table
+            table-data="pageData[currentTab].tableData"
+            show-loader="pageData[currentTab].tableShowLoader"
+            update-table="updateTable"
+            row-clickable=false
+            show-full-switch="pageData[currentTab].showFullSwitchTable"
+            table-style="style2"
+            default-row-num-index=1
+        show-filters-row="pageData[currentTab].showFiltersRow">
+                        
+        </wise-table>
+
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+        <new-demand-source
+                data-ng-if="currentTab=='demandSourcesTab'"
+                show="pageData[currentTab].showPopup">
+        </new-demand-source>
+
+        <wise-popup
+                show-ng-if="currentTab=='demandPartnersTab'"
+                show="pageData[currentTab].showPopup"
+                data="pageData.demandPartnersTab.popupData"
+                click-save-call-back="saveNewDemandPartner()"
+                clear="clearNewDemandPartnerPopUp()">
+        </wise-popup>
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,22 @@
+<div class="wiseAlertPopupDirective" data-ng-show="data.show">
+
+    <div class="modal-content">
+        <!-- Close icon -->
+        <span class="close" data-ng-click="data.show=false">&times;</span>
+        
+        <div class="wiseTitle2">
+            {{data.title}}
+        </div>
+        <br>
+
+        <!--<div class="wiseText4 errorDiv">{{data.title}}</div>-->
+
+        <div class="wiseText6" data-ng-class="{'warning' : severity==1,'error' : severity==2 }"> {{data.text}} </div>
+
+        <div class="btns">
+            <button type="button" class="wiseBtn1 okBtn" data-ng-click="ok()" id="okButton"> OK </button>
+            <button class="wiseBtn1 cancelBtn" data-ng-click="data.show=false"> CANCEL </button>
+        </div>
+    </div> 
+
+</div>

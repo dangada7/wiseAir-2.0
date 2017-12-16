@@ -1,0 +1,154 @@
+/* The Modal (background) */
+.newDemandSourceDirective {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.newDemandSourceDirective .modal-content {
+    background-color: var(--gray);
+    margin: auto;
+    width: 1000px;
+    margin-bottom: 200px;
+}
+
+/* ============= */
+/* Close Button: */
+/* ============= */
+.newDemandSourceDirective .modal-content .close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -45px;
+    margin-right: 12px;
+}
+
+.newDemandSourceDirective .modal-content .close:hover,
+.newDemandSourceDirective .modal-content .close:focus {
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ===== */
+/* tabs: */
+/* ===== */
+
+.newDemandSourceDirective .modal-content .tabs{
+    background-color:var(--black);
+    text-transform: uppercase;
+}
+
+.newDemandSourceDirective .modal-content .tabs .selectedTab{
+    background-color:var(--gray);
+}
+
+/* ============ */
+/* .section */
+/* ============ */
+.newDemandSourceDirective .modal-content .section{
+    border-bottom: 1px var(--black) solid;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 24px;
+}
+
+.newDemandSourceDirective .modal-content .section .element{
+    width : 49%;
+    display:inline-block;
+    margin-bottom: 5px;
+}
+
+.newDemandSourceDirective .modal-content .section  .wiseText4{
+    text-transform: capitalize;
+}
+
+.newDemandSourceDirective .modal-content .section  .shutdownParamsElement{
+    vertical-align: text-top;
+}
+
+.newDemandSourceDirective .modal-content .section .switchElement{
+    text-align: center;
+}
+
+.newDemandSourceDirective .modal-content .section .switchElement wise-switch{
+    margin-right:10px;
+    margin-left:10px;
+    display: inline-block;
+}
+
+.newDemandSourceDirective .modal-content .section .element .tableCell{
+    width : 40%;
+    display:inline-block;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-right:5%;
+}
+
+.newDemandSourceDirective .modal-content .section .element .radioButtonsShutdown,
+.newDemandSourceDirective .modal-content .section .element .setSupplySourceInactive{
+    vertical-align: text-top;
+}
+
+.newDemandSourceDirective .modal-content .section .element .radioButtonsShutdown .radioButton {
+    margin-right:100px;
+}
+
+.newDemandSourceDirective .modal-content .section .element .lastHoverInput,
+.newDemandSourceDirective .modal-content .section .element .daliyLossInput {
+    width:50px;
+}
+
+.newDemandSourceDirective .modal-content .section .element input.url{
+    width: 592px!important;
+}
+
+.newDemandSourceDirective .modal-content .textareaSection .wiseText4{
+    width: 165px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 30px;
+
+}
+.newDemandSourceDirective .modal-content .textareaSection  textarea{
+    vertical-align: text-top;
+    width: 500px;
+    display: inline-block;
+    height: 80px;
+    background: transparent;
+    color:white;
+}
+
+
+
+
+
+
+/* ================ */
+/* Last section */
+/* ================ */
+.newDemandSourceDirective .modal-content .lastSection{
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.newDemandSourceDirective .modal-content .lastSection .saveBtn{
+    float: right;
+}
+
+
+
+
+
+

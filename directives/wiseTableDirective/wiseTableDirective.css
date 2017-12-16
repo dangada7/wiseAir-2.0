@@ -1,0 +1,399 @@
+
+.dirWiseTable{
+    padding-top : 30px;
+    padding-bottom : 100px;
+}
+
+/* TITLE*/
+.dirWiseTable .wiseTitle{
+    display : inline;
+}
+
+
+/* ---------------------- */
+/* SEARCH AND SWITCH DIV: */
+/* ---------------------- */
+
+.dirWiseTable input:focus {
+    outline:none;
+}
+
+.dirWiseTable .searchAndSwitch{
+    margin-top:25px;
+}
+
+
+.dirWiseTable .searchAndSwitch input{
+    border: none;
+    padding: 2px;
+}
+
+.dirWiseTable img.search {
+    
+    /*margin-left : -20px;
+    margin-bottom: -2px;*/
+    float : right;
+    margin-left:-20px;
+    margin-top:5px;
+}
+
+
+.dirWiseTable img.searchIcon{
+        margin-left : -20px;
+    margin-bottom: -2px;
+}
+
+
+.dirWiseTable .searchAndSwitch .filters {
+    
+    display:inline-block;
+}
+
+
+.dirWiseTable .moreInfoDiv{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.dirWiseTable .moreInfoDiv img{
+    width: 16px;
+    margin-bottom: -3px;
+}
+
+
+.dirWiseTable .searchAndSwitch wise-switch {
+    float: right;
+}
+
+.dirWiseTable .searchAndSwitch .compareSwitch{
+    margin-left:10px;
+}
+.dirWiseTable .searchAndSwitch img.exportBtn2{
+    float: right;
+    margin-left: 10px;
+    padding: 2px;
+}
+
+/* ------ */
+/* TABLE: */
+/* ------ */
+
+.dirWiseTable .tableWrapper{
+    width:100%;
+    overflow-x:auto;
+    padding-bottom:5px;
+    padding-top:20px;
+}
+
+.dirWiseTable .tableWrapper::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #333333;
+}
+
+.dirWiseTable .tableWrapper::-webkit-scrollbar
+{
+    height: 8px;
+}
+
+.dirWiseTable .tableWrapper::-webkit-scrollbar-thumb
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+	background-color: white;
+}
+.dirWiseTable .tableWrapper.style2::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #555453;
+}
+
+.dirWiseTable .tableWrapper.style2::-webkit-scrollbar
+{
+    height: 8px;
+}
+
+.dirWiseTable .tableWrapper.style2::-webkit-scrollbar-thumb
+{
+	/*border-radius: 10px;*/
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+	background-color: white;
+}
+
+
+.dirWiseTable .tableWrapper table {
+  border-collapse: collapse;
+  width : 100%;
+  table-layout:fixed
+}
+
+
+.dirWiseTable table input {
+    max-width : 90%;
+}
+
+
+.dirWiseTable table tr.clickable:hover {
+    background-color:white;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.dirWiseTable table .chosenRow{
+    background-color:white;
+    color: var(--black)!important;
+}
+
+.dirWiseTable table .tableBody {
+    font-size : 14px;
+    line-height : 19px;
+}
+
+
+/* style 1*/
+.dirWiseTable table.tableStyle1 tr { 
+  border: solid #333333;
+  border-width: 1px 0;
+  color:white;
+}
+.dirWiseTable table.tableStyle1 tr:last-child { 
+    border-bottom: 2px solid var(--black);;
+}
+
+.dirWiseTable table.tableStyle1 tr.tableTotalsRow {
+    border-top: 2px solid white;
+    border-bottom: none;
+}
+
+.dirWiseTable table tr.tableTitlesRow {
+    border-top: none;
+    border-bottom: 2px solid var(--black);
+    vertical-align: bottom;
+    font-size : 14px;
+    line-height : 19px;
+}
+
+
+.dirWiseTable table tr.tableTitlesRow div.title{
+    display:inline-block;
+    width:calc(100% - 20px);
+}
+
+.dirWiseTable table tr.tableTitlesRow .titleArrow{
+    /*margin-left:-20px;*/
+    color: #FFB900;
+}
+
+/* style 2*/
+.dirWiseTable table.tableStyle2 tr { 
+    border: solid #555453 ;
+    border-width: 1px 0 ;
+  color:white;
+}
+
+.dirWiseTable table.tableStyle2 tr:last-child { 
+    border-bottom: 2px solid var(--black);
+}
+
+.dirWiseTable table.tableStyle2 tr.tableTotalsRow {
+    border-top: 2px solid white;
+    border-bottom: none;
+}
+
+.dirWiseTable table.tableStyle2 tr.tableTitlesRow {
+    border-top: none;
+    border-bottom: 2px solid white;
+}
+
+.dirWiseTable table tr.tableTitlesRow td{
+    cursor: pointer;
+    text-transform: capitalize;
+    vertical-align: bottom;
+}
+
+.dirWiseTable table td {
+    padding-top : 6px;
+    padding-bottom : 6px;
+    height: 40px;
+    line-height : 23px!important;
+
+
+    /*white-space: pre;           /* CSS 2.0 */
+    /*white-space: pre-wrap;      /* CSS 2.1 */
+    /*white-space: pre-line;      /* CSS 3.0 */
+    /*white-space: -pre-wrap;     /* Opera 4-6 */
+    /*white-space: -o-pre-wrap;   /* Opera 7 */
+   /* white-space: -moz-pre-wrap; /* Mozilla */
+    /*white-space: -hp-pre-wrap;  /* HP Printers */
+
+    word-wrap: break-word;      /* IE 5+ */
+
+}
+
+.dirWiseTable table td.pkValue{
+    padding-right: 10px;
+}
+
+
+.dirWiseTable table td.measure {
+    /*text-align:center;*/
+}
+
+.dirWiseTable table col.PkCellWidthLite {
+    width : 250px;
+}
+
+.dirWiseTable table col.PkCellWidthFull {
+    width : 200px;
+}
+
+.dirWiseTable table col.cellWidthLite {
+    width : 110px;
+}
+
+.dirWiseTable table col.cellWidthFull {
+    width : 110px;
+}
+
+.dirWiseTable table col.cellWidthAction {
+    width : 180px!important;
+}
+
+.dirWiseTable table img{
+    margin-bottom: -1px;
+}
+
+.dirWiseTable table img.action{
+    margin-bottom: -1px;
+    margin-right:18px!important;
+}
+
+
+
+
+
+.dirWiseTable table .tableBodyComporeCell{
+    min-height: 30px;
+}
+
+.dirWiseTable table tr.lastBodyRow{
+    border-bottom: 2px solid white!important;
+}
+
+.dirWiseTable table .centerVertical{
+    /*line-height: 30px;*/
+}
+
+
+.dirWiseTable table .searchRow {
+    border:none !important;
+}
+
+.dirWiseTable table .searchRow td{
+    border:none !important;
+}
+
+.dirWiseTable table .searchRow input.rowSearch{
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color:white;
+    background-color: transparent;
+    /*border-bottom: 1px solid white;*/
+    width: calc(100% - 10px);
+
+}
+
+.dirWiseTable table .searchRow .filterWrapper{
+    border-bottom: 1px solid white;
+    width: calc(100% - 20px); 
+    padding-bottom : 12px;
+}
+
+
+
+.dirWiseTable table .noTopBorder {
+    border-top: none!important;
+}
+
+.dirWiseTable table tr.noBorder {
+    border: none!important;
+    padding-bottom:0px;
+}
+
+.dirWiseTable table .titleFilterTable{
+    border-bottom: 2px solid white;
+    width: calc(100% - 20px);
+    padding-bottom: 10px;
+}
+
+.dirWiseTable table .titleFilterTable2{
+    border-bottom: 2px solid white;
+    width: 102%!important;
+    padding-bottom : 12px;
+}
+
+
+
+/* loader */
+.dirWiseTable .wiseLoaderWrapper {
+    text-align: center;
+}
+
+.dirWiseTable .wiseLoader {
+    display: inline-block;
+    margin-top:50px;
+}
+
+/* navigation bottom */
+.dirWiseTable .tableNavDiv{
+    float:right;
+    margin-top:20px;
+}
+
+.dirWiseTable .selectNumRowsText{
+    margin-right: 5px;
+}
+
+.dirWiseTable .selectNumRows{
+    margin-right : 10px;
+}
+
+.dirWiseTable .selectPageText{
+    margin-right: 5px;
+}
+
+.dirWiseTable .selectPage{
+    margin-right : 20px;
+}
+.dirWiseTable .navArrow {
+    margin-left:3px;
+    margin-right:3px;
+}
+
+
+/* popup cell */
+.dirWiseTable .popup {
+    position: absolute;
+    z-index: 100;
+    padding: 5px;
+    border-radius: 5px;
+    width: 120px;
+    background-color : #555453;
+}
+
+
+/* ======= */
+/* style2: */
+/* ======= */
+.dirWiseTable .switchStyle2 .wiseSwitchDirective .wiseSwitch div{
+    background-color:#555453!important;
+}
+.dirWiseTable .switchStyle2 .wiseSwitchDirective .wiseSwitch input:checked + div{
+    background-color:white!important;
+}
+
+
+
+
+
+

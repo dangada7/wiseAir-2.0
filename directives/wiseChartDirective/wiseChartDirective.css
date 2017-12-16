@@ -1,0 +1,49 @@
+.dirWiseChart {
+    padding-top: 25px;
+    padding-bottom : 25px;
+    min-height: 320px;
+}
+
+.dirWiseChart .wiseSwitchDiv {
+    float:right;
+}
+.dirWiseChart .wiseSwitchDiv wise-switch{
+    display: -webkit-inline-box;
+
+}
+.dirWiseChart .wiseSwitchDiv .granularityText{
+    margin-right: 6px;
+    line-height: 30px!important;
+}
+
+.dirWiseChart .wiseSwitchDiv wise-select{
+    margin-right:16px;
+}
+
+.dirWiseChart .chart {
+    padding-top:50px;
+}
+
+.dirWiseChart .wiseSelectWrapper {
+    margin-right:12px;
+}
+
+.dirWiseChart .wiseTitle1 {
+    display: inline;
+    text-transform: uppercase;
+}
+
+.dirWiseChart .wiseLoaderWrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.dirWiseChart .wiseLoader {
+    display: inline-block;
+}
+
+
+.dirWiseChart .proximaNova700{
+    font-family:"proxima-nova" ; 
+    font-weight :700;
+}

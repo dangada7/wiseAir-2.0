@@ -1,0 +1,30 @@
+#manageDemand {
+    height  : calc(100vh - 50px);
+    background-color : #333333
+}
+
+#manageDemand .firstSection{
+    height: auto;
+}
+
+
+#manageDemand .firstSection .wiseTitle1{
+    margin-bottom: 40px;
+}
+
+#manageDemand .firstSection .navBtn{
+    font-size:18px!important;
+}
+
+#manageDemand .firstSection .createNewBtn{
+    float:right;
+    margin-top: 10px;
+}
+
+#manageDemand .firstSection .createNewBtn img.createNew{
+    width:30px;
+}
+
+#manageDemand .dirWiseTable{
+    padding-top:0px!important;
+}

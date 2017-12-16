@@ -1,0 +1,101 @@
+/*
+    <div class="wiseComplexDropdown"> 
+        <div class="title"> </div> 
+        <span class="num"></span>
+        <div class="complexContent">
+            <div class="complexContentTitle" > 
+                <div class="wiseSmallBtn"> 
+                    <img >
+                </div>
+            </div>
+            <div class="complexContentBody">  
+                <div class="wiseRegularText"> </div>
+            </div>  
+            <div class="complexContentBottom"> 
+            </div>  
+        </div>
+    </div>
+*/
+
+.wiseComplexDropdown {
+    color:white;
+    cursor : pointer;
+
+    background: transparent;
+    padding: 0px;
+    border: none;
+}
+
+.wiseComplexDropdown:focus {
+    outline:none;
+}
+
+
+/*.wiseComplexDropdown:hover {
+    background-color: var(--black);
+}*/
+
+.wiseComplexDropdown .complexContent{
+    padding : 10px;
+    text-align:left;
+    cursor : default;
+    /*display: none;*/
+    position: absolute;
+    background-color: var(--black);
+    min-width: 210px;
+    z-index: 1;
+}
+
+/*.wiseComplexDropdown:hover .complexContent {
+    display: block;
+    font-family : "futura-pt-bold";
+    font-weight : 700;
+}*/
+
+.wiseComplexDropdown .complexContent .complexContentTitle{
+    border-bottom : 2px solid white;    
+    margin-bottom: 10px;    
+    padding-bottom: 10px;    
+}
+
+.wiseComplexDropdown .complexContent .complexContentBody .wiseText5{
+    border-bottom : 1px solid #555453; 
+    margin-bottom: 10px;       
+    padding-bottom: 10px;
+    margin-top:10px;       
+}
+
+.wiseComplexDropdown .complexContent .complexContentTitle .wiseBtn2{
+    float: right;
+}
+
+.wiseComplexDropdown .complexContent  .complexContentBody {
+    overflow-y:scroll;
+    max-height: 220px;
+    z-index: 101;
+}
+
+.wiseComplexDropdown .complexContent  .complexContentBody .wiseText6{
+    width: 220px;
+}
+
+.wiseComplexDropdown .complexContent .complexContentBottom{
+    border-bottom : 2px solid white;    
+    border-top : 2px solid white;   
+    padding-top:7px;
+    padding-bottom:7px;
+    margin-top:5px;
+}
+
+.wiseComplexDropdown .num {
+  position: absolute;
+  background-color: var(--strongRed);
+  font-family:'proxima-nova';
+  font-weight :700;
+  font-size: 9px;
+  width : 18px;
+  height : 18px;
+  border-radius:50%;
+  line-height: 20px;
+}
+

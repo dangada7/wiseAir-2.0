@@ -1,0 +1,33 @@
+
+/* view */
+.wiseView{
+    background-color: #555453;
+}
+
+.wiseView .firstSection {
+    
+    height : 100px;
+    padding-left:10%;
+    padding-right:10%;
+    background-color: #555453;
+}
+
+.wiseView .firstSection .wiseTitle1{
+    padding-top: 36px;
+}
+
+
+.wiseView .secondSection {
+    background-color: #333333;
+    /*height : 180px;*/
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:48px;
+    padding-bottom:48px;
+}
+
+.wiseView .bodySection {
+    padding-left:10%;
+    padding-right:10%;
+}
+

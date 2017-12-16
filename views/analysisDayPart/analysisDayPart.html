@@ -1,0 +1,204 @@
+<div id="analysisDayPart" class="wiseView">
+     
+    <div class="firstSection" data-ng-init="currentTabName = 'supplySources'">
+        <div class=wiseTitle1>
+            ANALYSIS / DAY PART 
+        </div>
+    </div>
+
+    <div class="secondSection">
+
+        <div class="reportType" data-ng-show="!showFiltersLoader">
+            <div class="wiseText4"> Report Type:  </div>
+            <input type="radio" name="gender" value="demand" data-ng-model="selectedReportType" > <span class="wiseText5" > Demand</span>
+            <input type="radio" name="gender" value="supply" data-ng-model="selectedReportType" class="wiseTitle2"> <span class="wiseText5"> Supply</span>
+        </div>
+
+        <div>
+            <!-- filters div-->
+            <div class="filtersDiv"  data-ng-show="!showFiltersLoader">
+                <div class="wiseText3"> Filters </div>
+
+                <span data-ng-repeat="filterData in filtersData" >
+
+                    <span class="filterWrapper">
+
+                        <wise-select
+                                placeholder="{{filterData.placeholder}}"
+                                type="{{filterData.type}}"
+                                attribute="{{filterData.objectKey}}"
+                                options="filterData.options"
+                                selected-data="filterData.selectedData"
+                                lazy-load="filterData.lazyLoad"
+                                width="170px">
+                        </wise-select>
+
+
+                    </span>
+
+                    <br data-ng-if="$index == 3">
+
+                </span>
+
+            </div>
+
+
+            <!-- date filters div-->
+            <div class="dateFiltersDiv"  data-ng-show="!showFiltersLoader">
+                <div class="wiseText3"> Report Dates </div>
+
+                <div data-ng-repeat="filterDateData in filtersDateData" class="filterWrapper">
+                    <wise-select
+                        placeholder="{{filterDateData.placeholder}}"
+                        type="regular"
+                        attribute="{{filterDateData.objectKey}}"
+                        options="filterDateData.options"
+                        selected-data="filterDateData.selectedData"
+                        width="110px"
+                        disabled-input=true>
+                    </wise-select>
+                </div>
+                <br>
+                <wise-custom-date selected-date=filtersDateData.date.custom data-ng-show="showCustomDate()" clear="clearCustom"> </wise-custom-date>
+            </div>
+        </div>
+        
+        <div class="filtersBtnsDiv" data-ng-show="!showFiltersLoader">
+            <div class="wiseBtn1" data-ng-click="clearBtn()"> CLEAR </div>         
+            <div class="wiseBtn1" data-ng-click="updateBtn()"> UPDATE </div>         
+            <!--<img class="exportBtn" src="/resources/images/export.svg">-->
+        </div>
+        
+        <div class="wiseLoaderWrapper wiseText4" data-ng-show="showFiltersLoader">
+            <div class="wiseLoader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+                LOADING
+            </div>
+        </div>
+    </div>
+
+    <div class="bodySection" data-ng-if="firstUpdateClick">
+
+        <div class="wiseLoaderWrapper wiseText4" data-ng-show="showTableLoader">
+            <div class="wiseLoader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+                LOADING
+            </div>
+        </div>
+
+        <div class="noDataDiv" data-ng-show="!showTableLoader && noData">
+            <div>
+                <img src="/resources/images/alert_yellow.svg">
+                <span> NO DATA FOUND </span>
+            </div>
+        </div>
+
+        <div data-ng-show="tableData != null && !noData && !showTableLoader" class="wiseXScroll">
+            
+            <!--<div class="selectsDiv">
+                <wise-select
+                    class="selectPage"
+                    type="regular"
+                    options="tableData.measures"
+                    selected-data="tableData.selectedMeasureA"
+                    width="170px"
+                    disabled-input=true>
+                </wise-select>
+                <wise-select
+                    class="selectPage"
+                    type="regular"
+                    options="tableData.measures"
+                    selected-data="tableData.selectedMeasureB"
+                    width="170px"
+                    disabled-input=true>
+                </wise-select>
+            </div>-->
+
+            <div class="tables">
+
+
+
+                <!--<div class="tablesColors">-->
+                    <!--<div class="color {{colorData.class}}" data-ng-repeat="colorData in colorsData" >&nbsp</div>-->
+                <!--</div>-->
+
+                <table data-ng-mouseleave="updateLocation(-1, -1)" >
+
+
+                    <tr>
+                        <td class="noBorder"> </td> <!--1 -->
+                        <td class="noBorder"> </td> <!--2 -->
+                        <td class="noBorder"> </td> <!--3 -->
+                        <td class="noBorder"> </td> <!--4 -->
+                        <td class="noBorder"> </td> <!--5 -->
+                        <td colspan="2" class="noBorder">  <!--6-7 -->
+                            <wise-select
+                                class="selectPage"
+                                type="regular"
+                                options="tableData.measures"
+                                selected-data="tableData.selectedMeasureA"
+                                width="170px"
+                                disabled-input=true>
+                        </wise-select>
+                        </td class="noBorder">
+                        <td class="noBorder"> </td> <!--8 -->
+                        <td colspan="2" class="noBorder"> <!--9 -->
+                            <wise-select
+                                class="selectPage"
+                                type="regular"
+                                options="tableData.measures"
+                                selected-data="tableData.selectedMeasureB"
+                                width="170px"
+                                disabled-input=true>
+                            </wise-select>
+                        </td>
+
+                    <tr>
+
+
+                    <tr class="wiseText4">
+                        <th data-ng-repeat="title in tableData.daysTitles" data-ng-class="{'highlightTh' : checkLocationX($index)}">{{title}} </th>
+                        <th class="time"> HOURS </th>
+                        <th data-ng-repeat="title in tableData.daysTitles" data-ng-class="{'highlightTh' : checkLocationX($index)}"> {{title}} </th>
+                    </tr>
+
+
+                    <tr class="wiseText5" data-ng-repeat="hour in tableData.hoursTitles track by $index">
+                        <td data-ng-repeat="day in tableData.daysTitles track by $index"
+                            data-ng-mouseover="updateLocation($index, $parent.$index)"
+                            class="{{getClusterClass(key, tableData.selectedMeasureA.name).class}}"
+                            data-ng-init="key=($index+1) + '/' + $parent.$index"
+                            data-ng-class="{'highlightTd' : checkLocationXY($index,$parent.$index), 'firstRow' : $parent.$first, 'lastRow' : $parent.$last}">
+                            {{formatTableValue(tableData.tableBody[tableData.selectedMeasureA.name][key], tableData.selectedMeasureA.name)}}
+                        </td>
+                        <td class="time wiseText6"
+                            data-ng-class="{'highlightTh' : checkLocationY($index)}" >
+                            {{hour}}
+                        </td>
+                        <td data-ng-repeat="day in tableData.daysTitles track by $index"
+                            data-ng-mouseover="updateLocation($index, $parent.$index)"
+                            data-ng-init="key=($index+1) + '/' + $parent.$index"
+                            class="{{getClusterClass(key, tableData.selectedMeasureB.name).class}}"
+                            data-ng-class="{'highlightTd' : checkLocationXY($index,$parent.$index), 'firstRow' : $parent.$first , 'lastRow' : $parent.$last}">
+                            {{formatTableValue(tableData.tableBody[tableData.selectedMeasureB.name][key], tableData.selectedMeasureB.name)}}
+                        </td>
+                    </tr>
+
+                </table>
+
+                <!--<div class="tablesColors">-->
+                    <!--<div class="color {{colorData.class}}" data-ng-repeat="colorData in colorsData" >&nbsp</div>-->
+                <!--</div>-->
+
+
+
+            </div>
+        <!-- No Data -->
+
+
+    </div>
+</div>

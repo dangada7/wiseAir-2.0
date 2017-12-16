@@ -1,0 +1,248 @@
+<div class="newSupplySourceDirective" data-ng-show="show">
+
+    <div class="modal-content">
+          <!-- Tabs -->
+        <div class="tabs" >
+            <div  class="wiseTitle2 navBtn"
+                  data-ng-class="{'selectedTab' : data.currentTabName == tab}"
+                  data-ng-click="clickTab(tab)">
+                  New Supply Source
+            </div>
+        </div>
+
+        <!-- Close icon -->
+        <span class="close" data-ng-click="clickOnClose()">&times;</span>
+
+        <!-- section (1) -->
+        <div class="section">
+
+            <!-- 1. supply platforms-->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="supplyPlatforms=data.elements.supplyPlatforms">
+                <div class="wiseText4 tableCell">
+                    *supply platform
+                </div>
+                <wise-select
+                            class="tableCell"
+                            placeholder="supply platforms"
+                            type="regular"
+                            options="supplyPlatforms.options"
+                            selected-data="supplyPlatforms.selected"
+                            width="170px"
+                            disabled-input="false">
+                </wise-select>
+            </div>
+
+            <!-- 2. supply source name -->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="supplySource=data.elements.supplySource">
+                <div class="wiseText4 tableCell">
+                    *supply source name
+                </div>
+                <div class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="supplySource.selected" placeholder="">
+                </div>
+            </div>
+
+            <!-- 3. supply partner radio-->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="supplyPartnersRadioData=data.elements.supplyPartnersRadio">
+                <div class="wiseText4 tableCell">
+                    *Supply Partner
+                </div>
+                <div class="wiseText6 radioButtons tableCell" >
+                    <span data-ng-repeat="radioData in supplyPartnersRadioData.radioDataArr" class="radioButton">
+                        <input  type="radio" value="{{radioData.val}}" data-ng-model="supplyPartnersRadioData.selected" class="wiseRadio" >
+                        {{radioData.label}}
+                    </span>
+                </div>
+            </div>
+
+            <!-- 4. campaign radio-->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="campaignRadioData=data.elements.campaignRadio">
+                <div class="wiseText4 tableCell">
+                    {{campaignRadioData.label}}
+                </div>
+                <div class="wiseText6 radioButtons tableCell" >
+                    <span data-ng-repeat="radioData in campaignRadioData.radioDataArr" class="radioButton">
+                        <input  type="radio" value="{{radioData.val}}" data-ng-model="campaignRadioData.selected" class="wiseRadio" >
+                        {{radioData.label}}
+                    </span>
+                </div>
+            </div>
+
+            <!-- 5. supply partner -->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="supplyPartnersData=data.elements.supplyPartners">
+                <div class="wiseText4 tableCell">
+                </div>
+                <wise-select
+                        data-ng-show="supplyPartnersRadioData.selected == '0'"
+                        placeholder="{{supplyPartnersData.label}}"
+                        type="regular"
+                        options="supplyPartnersData.options"
+                        selected-data="supplyPartnersData.selected"
+                        width="170px"
+                        disabled-input="false">
+                </wise-select>
+                <div data-ng-show="supplyPartnersRadioData.selected == '1'" class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="supplyPartnersData.selectedNew" placeholder="campaign">
+                </div>
+            </div>
+
+            <!-- 6. campaign-->
+            <div class="element" data-ng-show="!showFilterLoader" data-ng-init="campaignData=data.elements.campaign">
+                <div class="wiseText4 tableCell">
+                </div>
+                <wise-select
+                        data-ng-show="campaignRadioData.selected == '0'"
+                        placeholder="{{campaignData.label}}"
+                        type="regular"
+                        options="campaignData.options"
+                        selected-data="campaignData.selected"
+                        width="170px"
+                        disabled-input="false">
+                </wise-select>
+                <div data-ng-show="campaignRadioData.selected == '1'" class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="campaignData.selectedNew" placeholder="campaign">
+                </div>
+            </div>
+
+            <!-- LOADER-->
+            <div>
+                <div class="filterLoaderWrapper wiseText4" data-ng-show="showFilterLoader">
+                    <div class="wiseLoader2">
+                        <svg class="circular" viewBox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                    LOADING
+                </div>
+            </div>
+
+        </div>
+
+        <!-- section (2) -->
+        <div class="section">
+            <!-- 1. supply platforms-->
+            <div class="element " data-ng-init="externalIdData=data.elements.externalId">
+                <div class="wiseText4 tableCell">
+                    *external id
+                </div>
+                <div class="inputDiv tableCell">
+                        <input class="wiseInput" data-ng-model="externalIdData.selected">
+                </div>
+            </div>
+
+            <!-- 2. campaign radio-->
+            <div class="element" data-ng-init="bidData=data.elements.bid">
+                <div class="wiseText4 tableCell">
+                    *{{bidData.label}}
+                </div>
+                <div class="inputDiv tableCell">
+                        <input class="wiseInput" data-ng-model="bidData.selected" type="number">
+                </div>
+            </div>
+        </div>
+
+        <!-- section (3) -->
+        <div class="section">
+
+            <!-- 1. shutdown radio buttons -->
+            <div class="element shutdown" data-ng-init="shutdownRadioData=data.elements.shutdownRadio">
+                <div class="wiseText4 tableCell">
+                    *{{shutdownRadioData.label}}
+                </div>
+                <div class="wiseText6 radioButtons radioButtonsShutdown tableCell" >
+                    <span data-ng-repeat="radioData in shutdownRadioData.radioDataArr" class="radioButton">
+                        <input  type="radio" value="{{radioData.val}}" data-ng-model="shutdownRadioData.selected" class="wiseRadio" > 
+                        {{radioData.label}}
+                    </span>
+                </div>
+            </div>
+
+            <!-- 2. shutdown params -->
+            <div data-ng-show="shutdownRadioData.selected=='2'" class="element shutdownParamsElement" data-ng-init="shutdownRadioData=data.elements.shutdownRadio;
+                                            runEveryData=data.elements.runEvery;
+                                            lastHourLossData=data.elements.lastHourLoss;
+                                            dailyLossData=data.elements.dailyLoss; ">
+                <div class="wiseText5 tableCell runEvery">
+                    run every
+                </div>
+                <div class="wiseText5 tableCell">
+                    Set Supply Source inactive if
+                </div>
+
+                <wise-select
+                            class="tableCell runEvery" 
+                            type="regular"
+                            options="runEveryData.options"
+                            selected-data="runEveryData.selected"
+                            width="90px"
+                            disabled-input="false">
+                </wise-select>
+
+                <div class="wiseText7 tableCell setSupplySourceInactive">
+                    <div class="tableCell">
+                        last hour loss
+                    </div>
+                    <div class="inputDiv tableCell" >
+                        $
+                        <input class="wiseInput lastHoverInput" data-ng-model="lastHourLossData.selected" type="number">
+                    </div>
+
+                    <!--(set ZERO to avoid this test)-->
+                    
+                    <div class="tableCell">
+                        Daily loss
+                    </div>
+                    
+                    <div class="inputDiv tableCell ">
+                        $
+                        <input class="wiseInput daliyLossInput" data-ng-model="dailyLossData.selected" type="number">
+                    </div>
+                    <!--(set ZERO to avoid this test)-->
+
+                </div>
+
+
+            </div>
+
+            <div class="switchElement">
+                <!-- switch -->
+                <wise-switch
+                    label="RPM"
+                    status="data.elements.RPM.selected">
+                </wise-switch>
+                <!-- switch -->
+                <wise-switch
+                    label="Automatic Waterfall"
+                    status="data.elements.automaticWaterfall.selected">
+                </wise-switch>
+            </div>
+        </div>
+        
+        <!-- section (4) -->
+        <div class="section textareaSection">
+            <!-- 1. supply platforms-->
+            <div data-ng-init="notes=data.elements.notes">
+                <div class="wiseText4 tableCell">
+                    notes
+                </div>
+
+            <textarea wiseText6 data-ng-model="notes.selected">
+                </textarea>
+            </div>
+        </div>
+
+        <!-- Last section -->
+        <div class="lastSection">
+            <div class="wiseBtn1" data-ng-click="show=false">
+                CANCEL
+            </div>
+            <div class="wiseBtn1 saveBtn" data-ng-click="save()">
+                SAVE
+            </div>
+        </div>
+        
+
+
+    </div> <!-- close modal-content-->
+
+</div>

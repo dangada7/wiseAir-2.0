@@ -1,0 +1,159 @@
+<div class="wiseView" id="reportCustom">
+    
+    <div class="firstSection">
+        <div class=wiseTitle1>
+            REPORTS / CUSTOM <span data-ng-if="currentReportName!=null"> - </span> {{currentReportName}}
+        </div>
+    </div>
+
+    <div class="secondSection">
+        
+        <div class="reportType" data-ng-show="!showFiltersLoader">
+            <div class="wiseText4"> Report Type:  </div>
+            <input type="radio" value="demand" data-ng-model="reportType" > <span class="wiseText5" > Demand</span>
+            <input type="radio" value="supply" data-ng-model="reportType" class="wiseTitle2"> <span class="wiseText5"> Supply</span>
+        </div>
+
+        <div>
+             <!-- dimensions div-->
+            <div class="dimensiosnsDiv" data-ng-show="!showFiltersLoader">
+
+                <div data-ng-repeat="dimensionData in dimensionsData" class="filterWrapper">
+                    <div class="wiseText3 dimTitle"> {{dimensionData.title}} </div>
+                    <wise-select
+                        disable-dimension="disableDimension(att)"
+                        placeholder="{{dimensionData.placeholder}}"
+                        type="sections"
+                        options="dimensionData.options"
+                        selected-data="dimensionData.selectedData"
+                        width="170px">
+                    </wise-select>
+                </div>
+
+            </div>
+
+            <!-- date filters div-->
+            <div class="dateFiltersDiv"  data-ng-show="!showFiltersLoader">
+                <div class="wiseText3"> Report Dates </div>
+
+                <div data-ng-repeat="filterDateData in filtersDateData" class="filterWrapper">
+                    <wise-select
+                            placeholder="{{filterDateData.placeholder}}"
+                            type="regular"
+                            attribute="{{filterDateData.objectKey}}"
+                            options="filterDateData.options"
+                            selected-data="filterDateData.selectedData"
+                            width="110px"
+                            disabled-input=true>
+                    </wise-select>
+                </div>
+                <br>
+                <wise-custom-date selected-date=filtersDateData.date.custom data-ng-show="showCustomDate()"  clear="clearCustom"> </wise-custom-date>
+            </div>
+        </div>
+
+        <!-- filters div-->
+        <div class="filtersDiv"  data-ng-show="!showFiltersLoader">
+            <div class="wiseText4" data-ng-click="showFilters=!showFilters" >
+                Filters
+            </div>
+            <input type="radio" data-ng-init="filterStatus='2'" value='1' data-ng-model="filterStatus" > <span class="wiseText5" > Show </span>
+            <input type="radio" value='2' data-ng-model="filterStatus" class="wiseTitle2"> <span class="wiseText5"> Hide </span>
+            <br>
+
+            <span data-ng-repeat="filterData in filtersData" data-ng-show="filterStatus==1">
+
+                <span class="filterWrapper">
+                    <wise-select
+                        placeholder="{{filterData.placeholder}}"
+                        type="{{filterData.type}}"
+                        attribute="{{filterData.objectKey}}"
+                        options="filterData.options"
+                        selected-data="filterData.selectedData"
+                        lazy-load="filterData.lazyLoad"
+                        width="170px">
+                    </wise-select>
+                </span>
+                <br data-ng-if="addNewLine($index)">
+            </span>
+
+        </div>
+
+
+        
+        <!-- filters button -->
+        <div class="filtersBtnsDiv" data-ng-show="!showFiltersLoader">
+            <div>
+                <div class="wiseBtn1" data-ng-click="updateClick()"> UPDATE </div>
+                <div class="wiseBtn1" data-ng-click="clear()"> CLEAR </div>
+                <div class="wiseBtn1" data-ng-click="savedReportPopup()"  data-ng-show="currentReportName==null"> SAVE REPORT </div>
+                <div class="wiseBtn1" data-ng-click="updateCurrentReport()" data-ng-show="currentReportName!=null"> EDIT SAVED REPORT </div>
+                <!--<img class="exportBtn" src="/resources/images/export.svg">-->
+            </div>
+        </div>
+
+         <!-- filters loader -->
+         <div class="wiseLoaderWrapper wiseText2" data-ng-show="showFiltersLoader">
+            <div class="wiseLoader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div> <br>
+             LOADING
+        </div>
+    </div>
+
+    <!-- Custom Table -->
+    <div class="bodySection" data-ng-show="firstUpdateClick">
+        <wise-table 
+            table-title="tableTitle"
+            table-data="tableData"
+            show-loader="tableShowLoader"
+            update-table="updateTable"
+            show-compare-switch=showTableCompareSwitch
+            show-full-switch=showTableFullSwitch
+            show-total=true
+            table-style="style1"
+            show-export-btn="true"
+            show-compare-switch-loader="tableCompareShowLoader"
+            on-click-compare-call-back="onClickCompareTable()"
+        >
+        </wise-table>
+    </div >
+
+    <div class="wiseSeparator" data-ng-show="firstUpdateClick"> </div>
+
+    <!-- PERFORMANCE CHART -->
+    <div class="bodySection chartSection" data-ng-show="firstUpdateClick">
+        <wise-chart
+            chart-title="'PERFORMANCE OVER TIME'"
+            chart-data="chartData"
+            recreate-chart="updateChart"
+            chart-class-id="supplyChart"
+            show-granularity=true
+            show-measure1=true
+            show-measure2=true
+            show-compare-switch=showTableCompareSwitch
+            on-click-compare-call-back="onClickCompareChart()"
+            show-compare-loader="chartShowCompareLoader"
+            show-loader="chartShowLoader">
+        </wise-chart>
+    </div>
+
+    <div class="savedReportPopup" data-ng-show="showSavedReportPopup">
+
+        <div class="modal-content">
+            <div class="wiseTitle2">
+                 SAVED REPORT NAME:
+            </div>
+            <br>
+            <input class="wiseInput" data-ng-model="newSavedReportName" autofocus data-ng-keypress="inputSavedReportNameKeyPress($event)">
+            <br>
+            <br>
+            <button class="wiseBtn3 save" data-ng-click="saveReport()">SAVE</button>
+            <button class="wiseBtn3" data-ng-click="showSavedReportPopup=false">CANCEL</button>
+        </div>
+    </div>
+
+
+</div>

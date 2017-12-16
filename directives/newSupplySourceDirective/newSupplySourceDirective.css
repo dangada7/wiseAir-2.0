@@ -1,0 +1,184 @@
+/* The Modal (background) */
+.newSupplySourceDirective {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+.newSupplySourceDirective .modal-content {
+    background-color: var(--gray);
+    margin: auto;
+    width: 1000px;
+    margin-bottom: 200px;
+}
+
+/* ============= */
+/* Close Button: */
+/* ============= */
+.newSupplySourceDirective .modal-content .close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -45px;
+    margin-right: 12px;
+}
+
+.newSupplySourceDirective .modal-content .close:hover,
+.newSupplySourceDirective .modal-content .close:focus {
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ===== */
+/* tabs: */
+/* ===== */
+
+.newSupplySourceDirective .modal-content .tabs{
+    background-color:var(--black);
+    text-transform: uppercase;
+}
+
+.newSupplySourceDirective .modal-content .tabs .selectedTab{
+    background-color:var(--gray);
+}
+
+/* ============ */
+/* .section */
+/* ============ */
+
+.newSupplySourceDirective input:focus {
+    outline:none;
+}
+
+.newSupplySourceDirective .modal-content .section{
+    border-bottom: 1px var(--black) solid;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 24px;
+}
+
+.newSupplySourceDirective .modal-content .section wise-select{
+    text-align : left!important;
+}
+
+.newSupplySourceDirective .modal-content .section .element.shutdown {
+    min-height : 80px;
+}
+
+.newSupplySourceDirective .modal-content .section .element{
+    width : 49%;
+    display:inline-block;
+    margin-bottom: 5px;
+}
+
+.newSupplySourceDirective .modal-content .section .element.radio{
+    text-align: left;
+    margin-left: -6px;
+}
+
+.newSupplySourceDirective .modal-content .section  .wiseText4{
+    text-transform: capitalize;
+}
+
+.newSupplySourceDirective .modal-content .section  .shutdownParamsElement{
+    vertical-align: text-top;
+}
+
+.newSupplySourceDirective .modal-content .section .switchElement{
+    text-align: center;
+}
+
+.newSupplySourceDirective .modal-content .section .switchElement wise-switch{
+    margin-right:10px;
+    margin-left:10px;
+    display: inline-block;
+}
+
+.newSupplySourceDirective .modal-content .section .element .tableCell{
+    width : 40%;
+    display:inline-block;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-right:5%;
+}
+
+.newSupplySourceDirective .modal-content .section .element .tableCell.radioButtons{
+    text-align: left;
+    margin-left:-6px;
+}
+
+.newSupplySourceDirective .modal-content .section .element div.tableCell.runEvery{
+    margin-left: -40px;
+    padding-right:40px;
+}
+
+.newSupplySourceDirective .modal-content .section .element wise-select.tableCell.runEvery{
+    text-align:right!important;
+}
+
+
+.newSupplySourceDirective .modal-content .section .element .radioButtonsShutdown,
+.newSupplySourceDirective .modal-content .section .element .setSupplySourceInactive{
+    vertical-align: text-top;
+}
+
+.newSupplySourceDirective .modal-content .section .element .radioButtonsShutdown .radioButton {
+    margin-right:100px;
+}
+
+.newSupplySourceDirective .modal-content .section .element .lastHoverInput,
+.newSupplySourceDirective .modal-content .section .element .daliyLossInput {
+    width:50px;
+}
+
+.newSupplySourceDirective .modal-content .textareaSection .wiseText4{
+    width: 165px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 30px;
+
+}
+.newSupplySourceDirective .modal-content .textareaSection  textarea{
+    vertical-align: text-top;
+    width: 500px;
+    display: inline-block;
+    height: 80px;
+    background: transparent;
+    color:white;
+}
+
+
+
+/* ================ */
+/* Last section */
+/* ================ */
+.newSupplySourceDirective .modal-content .lastSection{
+    margin-right: 50px;
+    margin-left: 50px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.newSupplySourceDirective .modal-content .lastSection .saveBtn{
+    float: right;
+}
+
+.newSupplySourceDirective .modal-content .filterLoaderWrapper {
+    text-align: center;
+}
+.newSupplySourceDirective .modal-content .filterLoaderWrapper .wiseLoader2{
+    display: -webkit-inline-box;
+}
+
+

@@ -1,0 +1,201 @@
+
+<div class="top-bar" data-ng-if="showTopBar()">
+    <!--logo -->
+    <div class="logoDiv">
+        <a href="#!dashboard" >
+            <img src="/resources/images/logo.png">
+        </a>
+    </div>
+
+    <div class="top-bar-middle">
+
+        <!-- DASHBOARD -->
+        <div class="wiseDropdown" data-ng-class="{'active': currentLocation('dashboard'), 'isExpended' : hoverDashboard}" 
+            data-ng-mouseenter="hoverDashboard=true" data-ng-mouseleave="hoverDashboard=false">
+            <a data-ng-click="moveTo('/#!/dashboard')" > 
+            <!--href="#!dashboard"-->
+                <div class="title">
+                    DASHBOARD
+                </div>
+            </a>
+        </div> 
+
+        <!-- REPORTS -->
+        <button class="wiseDropdown" data-ng-class="{'active': currentLocation('reports') , 'isExpended' : isExpanded_reports || hoverReport}" 
+            data-ng-mouseenter="hoverReport=true" data-ng-mouseleave="hoverReport=false"
+            ng-init="isExpanded_reports = false" deep-blur="isExpanded_reports = false" data-ng-click="isExpanded_reports=!isExpanded_reports">
+            <div class="title">
+                REPORTS 
+                <img src="resources/images/select_arrow_hover.svg" alt="" data-ng-show="isExpanded_reports || currentLocation('reports') || hoverReport ">
+                <img src="resources/images/select_arrow.svg" alt="" data-ng-show="!isExpanded_reports && !currentLocation('reports') && !hoverReport">
+            </div>
+            <div class="content" data-ng-show="isExpanded_reports">
+                <a data-ng-click="moveTo('/#!/reportsSupplySummary')"> SUPPLY SUMMARY </a> 
+                <a data-ng-click="moveTo('/#!/reportsDemandSummary')" > DEMAND SUMMARY </a>
+                <a data-ng-click="moveTo('/#!/reportsCustom')" > CUSTOM REPORTS </a>
+                <a data-ng-click="moveTo('/#!/reportsSaved')"  > SAVED REPORTS </a>
+            </div>
+        </button>
+
+        <!--MANAGE -->
+        <button class="wiseDropdown"  data-ng-class="{'active': currentLocation('manage')  , 'isExpended' : isExpanded_manage || hoverManage}" 
+            data-ng-mouseenter="hoverManage=true" data-ng-mouseleave="hoverManage=false"
+            ng-init="isExpanded_manage = false" deep-blur="isExpanded_manage = false" data-ng-click="isExpanded_manage=!isExpanded_manage">
+             <div class="title">
+                MANAGE
+                <img src="resources/images/select_arrow_hover.svg" alt="" data-ng-show="isExpanded_manage || currentLocation('manage') || hoverManage">
+                <img src="resources/images/select_arrow.svg" alt="" data-ng-show="!isExpanded_manage && !currentLocation('manage') && !hoverManage">
+                <!--&#x25BC; -->
+            </div> 
+            <div class="content" data-ng-show="isExpanded_manage">
+                <a data-ng-click="moveTo('/#!/manageSupply')"  >SUPPLY</a>
+                <!--href="#!manageSupply"-->
+                <a  data-ng-click="moveTo('/#!/manageDemand')"   >DEMAND</a>
+                <!--href="#!manageDemand"-->
+            </div>
+        </button>
+
+        <!-- ANALYSIS -->
+        <button class="wiseDropdown" data-ng-class="{'active': currentLocation('analysis') ,'isExpended' : isExpanded_analysis || hoverAnaysis}"  
+            data-ng-mouseenter="hoverAnaysis=true" data-ng-mouseleave="hoverAnaysis=false"
+            ng-init="isExpanded_analysis = false" deep-blur="isExpanded_analysis = false" data-ng-click="isExpanded_analysis=!isExpanded_analysis">
+
+            <div class="title">
+                ANALYSIS
+                <img src="resources/images/select_arrow_hover.svg" alt="" data-ng-show="isExpanded_analysis || currentLocation('analysis') || hoverAnaysis">
+                <img src="resources/images/select_arrow.svg" alt="" data-ng-show="!isExpanded_analysis  && !currentLocation('analysis') && !hoverAnaysis">
+            </div>
+            <div class="content" data-ng-show="isExpanded_analysis">
+                <a data-ng-click="moveTo('/#!/analysisAlertRules')">ALERT RULES</a>
+                <!--  href="#!analysisAlertRules"  -->
+                <a data-ng-click="moveTo('/#!/analysisDayPart')"  >DAY PART</a>
+                <!-- href="#!analysisDayPart" -->
+                <!--<a href="#!analysisPlanner" >PLANNER</a>-->
+            </div>
+        </div>
+
+    </button>
+
+    <div class="top-bar-right">
+        <!-- CURRENT TIME -->
+        <div class="wiseText4 currentTime" data-ng-click="changeTimeZone()"  title="Change Time Zone" > {{currentTime.time + ' ' + currentTime.timeZone}} </div> 
+
+        <!-- ALERTS -->
+        <button class="wiseComplexDropdown alertDropdown" 
+            data-ng-mouseenter="hoverAlert=true" data-ng-mouseleave="hoverAlert=false"
+            ng-init="isExpanded_alert = false" deep-blur="isExpanded_alert = false" data-ng-click="isExpanded_alert=!isExpanded_alert">
+            <div class="title"  data-ng-show="!isExpanded_alert && !hoverAlert"> </div> 
+            <div class="titleHover" data-ng-show="isExpanded_alert || hoverAlert"> </div> 
+
+            <span class="num " data-ng-show="alertNotificationNum!=0">{{alertNotificationNum}}</span>
+            <div class="complexContent" data-ng-show="isExpanded_alert">
+                <div class="complexContentTitle wiseTitle2" > 
+                    ALERTS 
+                    <div class="wiseBtn2 wiseText5 createNewRule" data-ng-click="showNewAlertRule=true">
+                        <img src="/resources/images/createNew.svg">
+                        CREATE NEW RULE
+                    </div>
+                </div>
+                <div class="complexContentBody wiseYScroll">
+                    <div class="complexContentBodyRow" data-ng-repeat="data in alertNotificationData.tableBody">
+                        <div class="wiseText6"> {{formantRowMessage(data.message[0].label)}} </div>
+                        <div class="wiseText5">
+                            {{data.date_created[0].label}}
+                            <div class="wiseBtn2 openRuleBtn" data-ng-click="openRule()"> OPEN RULE </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="complexContentBottom wiseText5">
+                    <div class="wiseBtn2" data-ng-click="showAlertPopup=true"> VIEW ALL </div>
+                    <div class="wiseBtn2 markAsRead" data-ng-click="clickAlertNotificationMarkAsRead()"> MARK AS READ </div>
+                </div>
+            </div>
+        </button>
+
+        <!-- NOTIFICATION -->
+        <button class="wiseComplexDropdown notifyDropdown" 
+            data-ng-mouseenter="hoverNotification=true" data-ng-mouseleave="hoverNotification=false"
+            ng-init="isExpanded_system = false" deep-blur="isExpanded_system = false" data-ng-click="isExpanded_system=!isExpanded_system">
+            <div class="title"  data-ng-show="!isExpanded_system && !hoverNotification"> </div> 
+            <div class="titleHover" data-ng-show="isExpanded_system || hoverNotification"> </div> 
+            <span class="num" data-ng-show="systemNotificationNum!=0">{{systemNotificationNum}}</span>
+            <div class="complexContent" data-ng-show="isExpanded_system">
+                <div class="complexContentTitle wiseTitle2" > 
+                    SYSTEM NOTIFICATIONS 
+                </div>
+                <div class="complexContentBody wiseYScroll">
+                    <div class="complexContentBodyRow" data-ng-repeat="data in systemNotificationData.tableBody">
+                        <div class="wiseText6"> {{data.message[0].label}} </div>
+                        <div class="wiseText5"> {{data.date_created[0].label}} </div>
+                    </div>
+                </div>
+                <div class="complexContentBottom">
+                    <div class="wiseBtn2 wiseText5" data-ng-click="showSystemNotificationPopup=true"> VIEW ALL </div>
+                </div>
+            </div>
+        </button>
+
+        <!-- USER -->
+        <button class="wiseDropdown userDropdown"
+            data-ng-mouseenter="hoverUser=true" data-ng-mouseleave="hoverUser=false"
+            ng-init="isExpanded_user = false" deep-blur="isExpanded_user = false" data-ng-click="isExpanded_user=!isExpanded_user">
+            <div class="title"  data-ng-show="!isExpanded_user && !hoverUser"> </div> 
+            <div class="titleHover" data-ng-show="isExpanded_user || hoverUser"> </div> 
+            <div class="content" data-ng-show="isExpanded_user">
+                <div class="userName wiseText4">
+                    <img src="/resources/images/userHover.svg">
+                    {{userName.val}}
+                </div>
+                <a data-ng-click="changePassword()"> CHANGE PASSWORD </a>
+                <a data-ng-click="logout()"> LOG OUT </a>
+            </div>
+        </button>
+
+    </div>
+
+
+    <div class="popup" data-ng-show="showSystemNotificationPopup">
+
+        <div class="modal-content">
+
+            <!-- Close icon -->
+            <span class="close" data-ng-click="showSystemNotificationPopup=false">&times;</span>
+
+            <wise-table
+                hide-num-of-row-select="true"
+                table-title="'SYSTEM NOTIFICATIONS'"
+                table-data="systemNotificationData"
+                update-table="updateSystemNotificationTable"
+                show-loader="systemNotificationLoader"
+                table-style="style1"
+            >
+            </wise-table>
+        </div>
+    </div>
+
+
+    <div class="popup" data-ng-show="showAlertPopup">
+        <div class="modal-content">
+
+            <!-- Close icon -->
+            <span class="close" data-ng-click="showAlertPopup=false">&times;</span>
+
+            <wise-table
+                    hide-num-of-row-select="true"
+                    table-title="'ALERTS'"
+                    table-data="alertNotificationData"
+                    update-table="updateAlertNotificationTable"
+                    show-loader="alertNotificationLoader"
+                    table-style="style1"
+            >
+            </wise-table>
+        </div>
+    </div>
+
+
+    <new-alert-rule
+            show="showNewAlertRule">
+    </new-alert-rule>
+
+
+</div>

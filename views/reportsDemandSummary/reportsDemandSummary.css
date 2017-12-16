@@ -1,0 +1,44 @@
+
+#reportDemandSummary .secondSection{
+    padding-top:0px;
+}
+
+#reportDemandSummary .secondSection .filtersDiv{
+    display:inline-table;
+    margin-right:16px;
+    margin-top:48px;
+}
+
+#reportDemandSummary .secondSection .dateFiltersDiv{
+    display:inline-table;
+    width: 400px;
+    margin-top:48px;
+    margin-bottom:48px;
+}
+
+#reportDemandSummary .secondSection .filtersBtnsDiv{
+    margin-top:-48px;
+    float:right;
+
+}
+
+#reportDemandSummary .secondSection  .filterWrapper{
+    display: inline-block;
+    padding-top:10px;
+    padding-right:6px;
+    vertical-align: top;
+    min-height:40px;
+}
+
+#reportDemandSummary .secondSection .filtersDiv .filterWrapper{
+    min-width:20%
+}
+
+#reportDemandSummary .secondSection .wiseLoaderWrapper {
+    text-align: -webkit-center;
+    padding-top:48px;
+}
+
+#reportDemandSummary .chartSection {
+    padding-top: 20px;
+}

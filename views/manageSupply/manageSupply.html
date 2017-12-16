@@ -1,0 +1,130 @@
+<div id="manageSupply" class="wiseView">
+     
+    
+    <div class="firstSection" data-ng-init="currentTabName = 'supplySources'">
+        <div class=wiseTitle1>
+            MANAGE / SUPPLY 
+        </div>
+        <div    class="wiseTitle2 navBtn" 
+                data-ng-class="{'selectedNavBtn' : currentTabName == 'supplySources'}"
+                data-ng-click="currentTabName = 'supplySources'">
+                SUPPLY SOURCES
+        </div>
+        <div    class="wiseTitle2 navBtn" 
+                data-ng-class="{'selectedNavBtn' : currentTabName == 'campaigns'}"
+                data-ng-click="currentTabName = 'campaigns'">
+                CAMPAIGNS
+        </div>
+        <div    class="wiseTitle2 navBtn"
+                data-ng-class="{'selectedNavBtn' : currentTabName == 'supplyPartners'}"
+                data-ng-click="currentTabName = 'supplyPartners'">
+                SUPPLY PARTNERS
+        </div>
+        <div    class="wiseTitle2 navBtn"
+                data-ng-class="{'selectedNavBtn' : currentTabName == 'supplyPlatforms'}"
+                data-ng-click="currentTabName = 'supplyPlatforms'">
+                SUPPLY PLATFORMS
+        </div>
+
+         <!--CREATE NEW BUTTONS 
+        <div    class="wiseBtn2 wiseTitle2 createNewBtn"
+                data-ng-show="!supplySourcesTableShowLoader && currentTabName == 'supplySources'"
+                data-ng-click="showSupplySourcesPopUp=true"
+                data-ng-mouseleave="createBtn1='createNew.svg'"
+                data-ng-mouseenter="createBtn1='createNewHover.svg'">
+            NEW SUPPLY SOURCE
+            <img class="createNew" data-ng-init="createBtn1='createNew.svg'"  data-ng-src="/resources/images/{{createBtn1}}">
+        </div>
+        <div    class="wiseBtn2 wiseTitle2 createNewBtn"
+                data-ng-show="!campaignTableShowLoader && currentTabName == 'campaigns'"
+                data-ng-click="showCampaignPopUp=true"
+                data-ng-mouseleave="createBtn2='createNew.svg'"
+                data-ng-mouseenter="createBtn2='createNewHover.svg'">
+            NEW CAMPAIGN
+            <img class="createNew" data-ng-init="createBtn2='createNew.svg'"  data-ng-src="/resources/images/{{createBtn2}}">
+        </div>
+        <div    class="wiseBtn2 wiseTitle2 createNewBtn"
+                data-ng-show="!supplyPartnersTableShowLoader && currentTabName == 'supplyPartners'"
+                data-ng-click="showSupplyPartnerPopUp=true"
+                data-ng-mouseleave="createBtn3='createNew.svg'"
+                data-ng-mouseenter="createBtn3='createNewHover.svg'">
+            NEW SUPPLY PARTNER
+            <img class="createNew" data-ng-init="createBtn3='createNew.svg'"  data-ng-src="/resources/images/{{createBtn3}}">
+        </div>-->
+    </div>
+
+    <div class="secondSection">
+
+         <!-- TABLES -->
+        <wise-table
+            data-ng-show="currentTabName == 'supplySources'"
+            table-data="supplySourcesTableData"
+            show-loader="supplySourcesTableShowLoader"
+            update-table="supplySourcesUpdateTable"
+            table-style="style2"
+            show-full-switch="true"
+            show-filters-row="true"
+            default-row-num-index=1
+            row-clickable="false"
+            on-row-click="editSupplySource(att)"
+            >
+            <!--            on-row-click="editSupplySource(att)"
+-->
+        </wise-table>
+        <wise-table
+            data-ng-show="currentTabName == 'campaigns'"
+            table-data="campaignTableData"
+            show-loader="campaignTableShowLoader"
+            update-table="campaignUpdateTable"
+            table-style="style2"
+            row-clickable=false
+            default-row-num-index=1>
+            <!--show-filters-row=true>-->
+        </wise-table>
+        <wise-table
+                data-ng-show="currentTabName == 'supplyPartners'"
+                table-data="supplyPartnersTableData"
+                show-loader="supplyPartnersTableShowLoader"
+                update-table="supplyPartnersUpdateTable"
+                row-clickable=false
+                table-style="style2"
+                default-row-num-index=1>
+        </wise-table>
+        <wise-table
+            data-ng-show="currentTabName == 'supplyPlatforms'"
+            table-data="supplyPlatformsTableData"
+            show-loader="supplyPlatformsTableShowLoader"
+            update-table="supplyPlatformsUpdateTable"
+            table-style="style2"
+            row-clickable=false
+            default-row-num-index=1>
+        </wise-table>
+
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+    </div>
+    
+    <!-- POPUPS -->
+    <new-supply-source
+            show="showSupplySourcesPopUp"
+            edit-data="supplySourceEditRowData">
+    </new-supply-source>
+
+    <wise-popup
+            show-popup="showCampaignPopUp"
+            data="campaignPopupData"
+            click-save-call-back="saveNewCampaign()"
+            clear="clearNewCampaignPopUp()">
+    </wise-popup>
+
+    <wise-popup
+            show-popup="showSupplyPartnerPopUp"
+            data="supplyPartnerPopupData"
+            click-save-call-back="saveNewSupplyPartner()"
+            clear="clearSupplyPartnerPopUp()">
+    </wise-popup>
+
+</div>

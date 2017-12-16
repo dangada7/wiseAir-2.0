@@ -1,0 +1,109 @@
+/* global style */
+:root {
+  --gray  : #555453;
+  --black : #333333;
+  --green : #45D881;
+  --red   : #d84552;
+  --strongRed: #E95A4D;
+  --yellow: #FFB900;
+}
+
+
+input:focus {
+    outline:none;
+}
+
+
+/* import future std bold
+
+@font-face {
+  font-family: "futuraStdBold";
+  src: url('../resources/font/futuraStdBold.otf');
+}
+*/
+
+/*
+    font-family : "futura-pt-bold";
+    font-weight : 700;
+*/
+
+/*
+@font-face {
+  font-family: "proximaNovaBold";
+  src: url('../resources/font/proximaNovaBold.otf');
+}*/
+
+/*
+    font-family : "proxima-nova";
+    font-weight : 700;
+
+*/
+/*
+@font-face {
+  font-family: "proximaNovaLight";
+  src: url('../resources/font/proximaNovaLight.otf');
+}*/
+
+/*
+    font-family : "proxima-nova";
+    font-weight : 400;
+*/
+
+
+
+
+body {
+    margin: 0;  /* fit full screen */ 
+    min-height: 100vh;
+    color:white;
+    background-color:#333333;
+}
+
+/* backgrounds */
+.wiseBackgroundColor1 {
+    background-color : #555453;
+}
+
+.wiseBackgroundColor2 {
+    background-color : #333333;
+}
+/* hover */
+.wiseHover1:hover{
+   background-color : #333333;
+   cursor: pointer;
+}
+.wiseHover2:hover{
+   background-color : white;
+   cursor: pointer;
+}
+
+
+/* wiseSeparator */
+.wiseSeparator {
+  height: 12px;
+  background-color: var(--black);
+}
+
+/* noDataDiv */
+.noDataDiv {
+  color : var(--yellow);
+  font-family : "futura-pt-bold";
+  font-weight : 700;
+  font-size: 18px;
+  height: 250px;
+  background-color: var(--black);
+}
+
+.noDataDiv div {
+  position: relative;
+  left: 50%;
+  margin-left:-105px;
+  top: 105px;
+}
+
+.noDataDiv img{
+  width:30px;
+  margin-bottom:-7px;
+  margin-right:6px;
+}
+

@@ -1,0 +1,31 @@
+#saveReports .firstSection .wiseTitle { 
+    padding-top : 45px;
+}
+
+#saveReports .secondSection { 
+   height:calc(100% - 480px);
+}
+
+#saveReports .secondSection .loadderWrapepr{ 
+    padding-top:50px;
+}
+
+
+#saveReports .dirWiseTable table tr { 
+    border: solid #555453 ;
+    border-width: 1px 0 ;
+}
+
+#saveReports .dirWiseTable table .tableTotalsRow {
+    border-bottom: none;
+    border-top: 2px solid white;
+}
+
+#saveReports .dirWiseTable table .tableTitlesRow {
+    border-top: none;
+    border-bottom: 2px solid white;
+}
+
+
+
+

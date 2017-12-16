@@ -1,0 +1,258 @@
+<div class="dirWiseTable">
+
+    <div class="wiseTitle1">
+        {{tableTitle}}
+
+        <div class="moreInfoDiv wiseText5 textColorWarning" data-ng-show="infoText != null && tableStatus('data')">
+            <img src="/resources/images/info_hover.svg" >
+            {{infoText}}
+        </div>
+    </div>
+
+    <div class="searchAndSwitch" data-ng-show="tableStatus('data')">
+        <!-- search  -->
+        <input data-ng-model="searchInput.val" placeholder="Search" data-ng-change="searchChange(searchInput)" data-ng-if="!showFiltersRow" class="wiseText4_5">
+        <img src="/resources/images/searchIcon.svg" class="searchIcon" data-ng-if="!showFiltersRow">
+
+        <img data-ng-click="exportTable()"
+             data-ng-show="tableStatus('data')"
+             data-ng-if="showExportBtn"
+             data-ng-src="\resources\images\{{exportKPI_icon}}"
+             data-ng-init="exportKPI_icon='export.svg'"
+             data-ng-mouseleave="exportKPI_icon='export.svg'"
+             data-ng-mouseover="exportKPI_icon='export_hover.svg'"
+             class="exportBtn2">
+
+
+        <!-- compare -->
+        <wise-switch
+            class="compareSwitch"
+            data-ng-show="showCompareSwitch"
+            data-ng-class="{'switchStyle2' : tableStyle == 'style2'}"
+            label="Compare"
+            on-change-call-back="onClickCompare()"
+            status="compareSwitchValue"
+            show-loader="showCompareSwitchLoader"
+            width="100px">
+        </wise-switch>
+
+        <!-- full measures -->
+        <wise-switch
+            data-ng-class="{'switchStyle2' : tableStyle == 'style2'}"
+            data-ng-show="showFullSwitch"
+            label="Full"
+            status="fullSwitchValue">
+        </wise-switch>
+    </div>
+
+
+    <div class="tableWrapper" data-ng-show="tableStatus('data')"
+         data-ng-class="{'style1' : tableStyle == 'style1', 'style2' : tableStyle == 'style2'}">
+        <table data-ng-class="{'tableStyle1' : tableStyle == 'style1', 'tableStyle2' : tableStyle == 'style2'}">
+
+            <!-- DEFINE THE WIDTH OF THE COLUMNS-->
+            <col data-ng-repeat="PKMeasures in tableData.tableDimensions track by $index"
+                 data-ng-class="{ 'PkCellWidthFull' : fullSwitchValue,  'PkCellWidthLite' : !fullSwitchValue}">
+            <col data-ng-repeat="selectedMeasure in selectedMeasures track by $index"
+                 data-ng-class="{ 'cellWidthFull' : fullSwitchValue,  'cellWidthLite' : !fullSwitchValue, 'cellWidthAction' : tableData.tableMeasureType[selectedMeasure] == 'actions'}">
+
+            <!-- titles -->
+            <tr class="tableTitlesRow wiseProximaNovaBold" data-ng-init="arrangeByArrowsStatus = {}" data-ng-class="{'noBorder' : showFiltersRow}">
+                <td data-ng-mouseover="orderByArrows[PKMeasures]=true" data-ng-mouseleave="orderByArrows[PKMeasures]=false" data-ng-repeat="PKMeasures in tableData.tableDimensions track by $index" class="wiseSubTitle" data-ng-click="rearrangeTable(PKMeasures)">
+                    <div data-ng-class="{'titleFilterTable': showFiltersRow}">
+                        <div class="title"> {{formantCellData(tableData.tableTitles[PKMeasures], 'table_title')}} </div>
+                        <!--<span data-ng-show="!showArrow(PKMeasures, 'up') && !showArrow(PKMeasures, 'down') && !(orderByArrows[PKMeasures] && !showArrow(PKMeasures, 'down'))"> &nbsp;  &nbsp; </span>-->
+                        <span class="titleArrow" data-ng-show="showArrow(PKMeasures, 'up') || (orderByArrows[PKMeasures] && !showArrow(PKMeasures, 'down'))"> &#x2191</span>
+                        <span class="titleArrow" data-ng-show="showArrow(PKMeasures, 'down')"> &#x2193</span>
+                    </div>
+                </td>
+                <td data-ng-mouseover="orderByArrows[selectedMeasure]=true" data-ng-mouseleave="orderByArrows[selectedMeasure]=false" data-ng-repeat="selectedMeasure in selectedMeasures track by $index" class="wiseSubTitle measure"  data-ng-click="rearrangeTable(selectedMeasure)"
+                    data-ng-class="{ 'cellWidthFull' : fullSwitchValue,  'cellWidthLite' : !fullSwitchValue}">
+                    <div data-ng-class="{'titleFilterTable': showFiltersRow && filterArr.indexOf(selectedMeasure) > -1 , 'titleFilterTable2' : showFiltersRow && filterArr.indexOf(selectedMeasure) == -1}">
+
+                        <div class="title">{{formantCellData(tableData.tableTitles[selectedMeasure], 'table_title') }} </div>
+                        <!-- {{getMeasureArrow(selectedMeasure) -->
+                        <!--<span data-ng-show="!showArrow(PKMeasures, 'up') && !showArrow(PKMeasures, 'down') && !(orderByArrows[PKMeasures] && !showArrow(PKMeasures, 'down'))"> &nbsp;  &nbsp; </span>-->
+                        <span class="titleArrow" data-ng-show="showArrow(selectedMeasure, 'up') || (orderByArrows[selectedMeasure] && !showArrow(selectedMeasure, 'down'))" > &#x2191</span>
+                        <span class="titleArrow" data-ng-show="showArrow(selectedMeasure, 'down')"> &#x2193</span>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- SEARCH ROW -->
+            <tr data-ng-if="showFiltersRow" class="searchRow">
+                <td data-ng-repeat="PKMeasures in tableData.tableDimensions track by $index">
+                    <div class="filterWrapper">
+                        <input data-ng-model="rowFilters[PKMeasures]" data-ng-change="searchChange()" class="rowSearch" placeholder="Filter"> </input>
+                        <img src="/resources/images/search_white.svg" class="search">
+                    </div>
+                </td>
+                <td data-ng-repeat="selectedMeasure in selectedMeasures track by $index">
+                    <div class="filterWrapper" data-ng-show="filterArr.indexOf(selectedMeasure) > -1">
+                        <input  data-ng-model="rowFilters[selectedMeasure]" data-ng-change="searchChange()" class="rowSearch" placeholder="Filter"> </input>
+                        <img src="/resources/images/search_white.svg" class="search">
+                    </div>
+               </td>
+            </tr>
+
+            <!-- TABLE BODY -->
+            <tr class="wiseProximaNova tableBody"
+                data-ng-class="{'clickable' : rowClickable, 'chosenRow' : tableBodyRow.id == chosenRowId, 'lastBodyRow' : $last, 'noTopBorder' : $first && showFiltersRow}"
+                data-ng-repeat="tableBodyRow in currentTableBody "
+                data-ng-click="rowClickable &&  onRowClickWrapper(tableBodyRow)" >
+
+                <td data-ng-repeat="PKMeasures in tableData.tableDimensions track by $index" class="wiseRegularText pkValue" 
+                    data-ng-init='key = PKMeasures == "date" ? "granularity_pk" : "tablePK";'>
+                    {{formantCellData(tableBodyRow[PKMeasures][0].label, key)}}
+                </td>
+
+                <td data-ng-repeat="selectedMeasure in selectedMeasures track by $index"
+                    ng-init="cellData = tableBodyRow[selectedMeasure]"
+                    class="measure">
+                    
+                    <!-- REGULAR DATA -->
+                    <div    data-ng-if="tableData.tableMeasureType[selectedMeasure] == undefined"
+                            class="tableBodyComporeCell"
+                            data-ng-class='{ "centerVertical" : !compareSwitchValue || showCompareSwitchLoader}'>
+
+                        {{formantCellData(cellData[0].label, selectedMeasure)}}
+                        <div data-ng-if="compareSwitchValue && !showCompareSwitchLoader">
+                            <div data-ng-if="compareData(cellData[0].label,cellData[1].label) == 1">
+                                <img src="/resources/images/report_arrow_up.svg">
+                                <span class="textColorIncrease"> {{formantCellData(cellData[1].label, selectedMeasure)}}  </span>
+                            </div>
+
+                            <div data-ng-if="compareData(cellData[0].label,cellData[1].label) == 2">
+                                <img src="/resources/images/report_arrow_down.svg">
+                                <span class="textColorDecrease"> {{formantCellData(cellData[1].label, selectedMeasure)}}  </span>
+                            </div>
+                            
+                            <div data-ng-if="compareData(cellData[0].label,cellData[1].label) == 3">
+                                <span class="textColorEqual"> {{formantCellData(cellData[1].label, selectedMeasure)}}  </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- HOVER DATA -->
+                    <div data-ng-if="tableData.tableMeasureType[selectedMeasure] == 'hover'" data-ng-mouseover="cellData[0].showPopup = true" data-ng-mouseleave="cellData[0].showPopup = false">
+
+                        <pre class="wiseText6"> {{formantCellData(cellData[0].label, selectedMeasure)}}  </pre>
+
+                        <div class="popup" data-ng-show="cellData[0].showPopup ">
+                            {{formantCellData(cellData[1].label, selectedMeasure)}}
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS DATA -->
+                    <div data-ng-if="tableData.tableMeasureType[selectedMeasure] == 'actions'">
+                        <img class="{{actionData.class}} action"
+                             data-ng-repeat="actionData in cellData"
+                             data-ng-click="actionData.func(tableBodyRow)"
+                             title="{{actionData.title}}"
+                             data-ng-src="{{actionData.currentSrc}}"
+                             data-ng-init="actionData.currentSrc = actionData.src"
+                             data-ng-mouseenter="actionData.currentSrc = actionData.srcHover"
+                             data-ng-mouseleave="actionData.currentSrc = actionData.src"
+                        >
+                    </div>
+
+                    <!-- INPUT -->
+                    <div data-ng-if="tableData.tableMeasureType[selectedMeasure] == 'input'">
+                        <input type="text" class="wiseInput" data-ng-model="cellData">
+                    </div>
+
+                    <!-- RADIO DATA -->
+                    <div data-ng-if="tableData.tableMeasureType[selectedMeasure] == 'radio'">
+
+                        <span data-ng-repeat="radioButton in cellData.buttons">
+                            <input type="radio" data-ng-model="cellData.val" data-ng-value="$index"> {{radioButton}}
+                        </span>
+                    </div>
+                </td>
+
+            </tr>
+
+            <!-- TOTAL-->
+            <tr class="tableTotalsRow wiseText3" data-ng-show="showTotal">
+                <td data-ng-repeat="PKMeasures in tableData.tableDimensions track by $index" class="wiseSubTitle" > <span data-ng-show="showTotal && firstDim($index)" > TOTAL </span> </td>
+                <td data-ng-repeat="selectedMeasure in selectedMeasures track by $index"
+                    class="wiseSubTitle measure">
+
+                    {{formantCellData(getTotal(selectedMeasure, false), selectedMeasure)}}
+                    <div data-ng-if="compareSwitchValue && !showCompareSwitchLoader">
+                        <div data-ng-if="compareData(getTotal(selectedMeasure, false),getTotal(selectedMeasure, true)) == 1">
+                            <img src="/resources/images/report_arrow_up.svg">
+                            <span class="textColorIncrease"> {{formantCellData(getTotal(selectedMeasure, true), selectedMeasure)}} </span>
+                        </div>
+
+                        <div data-ng-if="compareData(getTotal(selectedMeasure, false),getTotal(selectedMeasure, true)) == 2">
+                            <img src="/resources/images/report_arrow_down.svg">
+                            <span class="textColorDecrease"> {{formantCellData(getTotal(selectedMeasure, true), selectedMeasure)}} </span>
+                        </div>
+
+                        <div data-ng-if="compareData(getTotal(selectedMeasure, false),getTotal(selectedMeasure, true)) == 3">
+                            <span class="textColorEqual"> {{formantCellData(getTotal(selectedMeasure, true), selectedMeasure)}} </span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="tableNavDiv wiseText6" data-ng-show="tableStatus('data')">
+        
+
+        <span class="selectNumRowsText" data-ng-hide="hideNumOfRowSelect"> Rows Per Page </span>
+        <wise-select
+            data-ng-hide="hideNumOfRowSelect"
+            data-ng-click="numOfRowsClick=true"
+            class="selectNumRows"
+            type="regular"
+            attribute="label"
+            options="rowsNumOption"
+            selected-data="selectedNumOfRows"
+            width="50px"
+            disabled-input=true
+            show-filter-drop-down="showFilterDropDownNumOfRows">
+        </wise-select>
+
+        <span class="selectPageText"> Page </span>
+        <wise-select
+            data-ng-click="currentPageClick=true"
+            class="selectPage"
+            type="regular"
+            options="pagesOptions"
+            selected-data="selectedPage"
+            width="50px"
+            disabled-input=true
+            show-filter-drop-down="showFilterDropDownCurrentPage">
+        </wise-select>
+
+        <img class="prev5 navArrow" data-ng-src="/resources/images/{{prev5}}" data-ng-click="changeToPage('first')" data-ng-init="prev5='prev5.svg'" data-ng-mouseleave="prev5='prev5.svg'" data-ng-mouseenter="prev5='prev5_hover.svg'">
+        <img class="prev navArrow"  data-ng-src="/resources/images/{{prev}}" data-ng-click="changeToPage('prev')"   data-ng-init="prev='prev.svg'" data-ng-mouseleave="prev='prev.svg'" data-ng-mouseenter="prev='prev_hover.svg'">
+        <span class="tableNevText"> {{tableNavText}} </span>
+        <img class="next navArrow"  data-ng-src="/resources/images/{{next}}" data-ng-click="changeToPage('next')"   data-ng-init="next='next.svg'" data-ng-mouseleave="next='next.svg'" data-ng-mouseenter="next='next_hover.svg'">
+        <img class="next5 navArrow" data-ng-src="/resources/images/{{next5}}" data-ng-click="changeToPage('last')"  data-ng-init="next5='next5.svg'" data-ng-mouseleave="next5='next5.svg'" data-ng-mouseenter="next5='next5_hover.svg'">
+
+    </div>
+    <div class="wiseLoaderWrapper wiseText2" data-ng-show="tableStatus('loader')">
+        <div class="wiseLoader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div> <br>
+        LOADING
+    </div>
+
+    <div class="noDataDiv" data-ng-show="tableStatus('noData')">
+        <div>
+            <img src="/resources/images/alert_yellow.svg">
+            <span> NO DATA FOUND </span>
+        </div>
+    </div>
+
+</div>

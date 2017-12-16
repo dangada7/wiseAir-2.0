@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="23px" viewBox="0 0 20 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Notify Hover</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ELEMENTS" transform="translate(-593.000000, -327.000000)" fill="#FFFFFF">
+            <g id="notification-white" transform="translate(591.000000, 326.000000)">
+                <path d="M2,19 L2,16 L5,13 L5,10 C5.34532556,6.30629479 7.40359767,3.72415134 10,3 C10.2026856,1.78404356 10.9961996,1.01300072 12,1 C13.0017735,1.01300072 13.7973144,1.78404356 14,3 C16.60755,3.71115062 18.6779833,6.29329407 19,10 L19,13 L22,16 L22,19 L2,19 Z M12,24 C10.8954305,24 10,23.1045695 10,22 C10,20.8954305 10.8954305,20 12,20 C13.1045695,20 14,20.8954305 14,22 C14,23.1045695 13.1045695,24 12,24 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

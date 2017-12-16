@@ -1,0 +1,31 @@
+#manageSupply {
+    height  : calc(100vh - 50px);
+    background-color : #333333
+}
+
+#manageSupply .firstSection{
+    height: auto;
+}
+
+
+#manageSupply .firstSection .wiseTitle1{
+    margin-bottom: 40px;
+}
+
+#manageSupply .firstSection .navBtn{
+    font-size:18px!important;
+}
+
+#manageSupply .firstSection .createNewBtn{
+    float:right;
+    margin-top:10px;
+}
+
+#manageSupply .firstSection .createNewBtn img.createNew{
+    width:30px;
+}
+
+
+#manageSupply .dirWiseTable{
+    padding-top:0px!important;
+}

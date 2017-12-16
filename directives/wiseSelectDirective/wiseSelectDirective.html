@@ -1,0 +1,93 @@
+<button class="wiseSelect"
+     style="{{'width : ' + width}}"
+     title="{{lazyLoad ? 'Please type at least 3 characters' : ''}}"
+     deep-blur="isExpanded.val = false"
+     data-ng-mouseover="hover = true"
+     data-ng-mouseleave="hover = false"
+     >
+
+    <!-- Title-->
+    <div class="wiseText6 title"
+            ng-click="isExpanded.val = !isExpanded.val" >
+        {{getTitle()}}
+        <img src="/resources/images/select_arrow_hover.svg" data-ng-if="!hover && !isExpanded.val && checkType(['multiple', 'sections', 'regular','multiple_dashboard', 'regular_title'])">
+        <img class="edit" src="/resources/images/edit.svg" data-ng-if="!hover && !isExpanded.val && checkType(['multiple_autocomplete'])">
+    </div>
+
+
+    <!--<hr style="border-color: white; margin-top:3px; margin-bottom:3px;">-->
+
+    <!-- SecondTitle-->
+    <div ng-click="isExpanded.val = !isExpanded.val"  class="wiseText6 secondTitle" data-ng-if="checkType(['multiple', 'multiple_autocomplete', 'regular_title'])" data-ng-show="!isExpanded.val || checkType(['regular_title'])" > {{getSecondTitle()}} </div>
+    <input  class="input" data-ng-if="checkType(['input'])" placeholder="Text" data-ng-model="selectedData.val">
+
+
+    <!-- Options List-->
+    <div class="optionsList wiseText6 " data-ng-show="isExpanded.val" data-ng-class="{'multi' : checkType(['multiple_autocomplete'])}">
+
+        <!-- input-->
+        <input class="wiseText6"
+               data-ng-init="inputPlaceholder='Enter text...'"
+               data-ng-focus="inputPlaceholder=''"
+               data-ng-blur="inputPlaceholder='Enter text...'"
+               data-ng-if="checkType(['multiple_autocomplete'])"
+               placeholder="{{inputPlaceholder}}"
+               data-ng-model="input.val">
+
+        <div data-ng-class="{'scroll': showScroller() }">
+            <!-- SELECT ALL-->
+            <div data-ng-if="checkType(['multiple', 'multiple_autocomplete', 'multiple_dashboard'])" data-ng-click="selectAll()"
+                 class="option wiseHover1 wiseText5">
+                 SELECT ALL
+                 <span class="checkIcon" data-ng-show="selectedData.length == options.length">  &#x2713 </span>
+            </div>
+
+            <div >
+                <!-- SELECTED DATA -->
+                <div data-ng-if="checkType(['multiple_autocomplete'])" data-ng-click="removeSelectedOption(selectedOption)"
+                     data-ng-repeat="selectedOption in getSelectedData() | orderBy: 'label'"
+                     class="option wiseHover1">
+                     {{formantRow(selectedOption.label)}} <span class="checkIcon">  &#x2713 </span>
+                </div>
+
+                <hr data-ng-if="checkType(['multiple_autocomplete'])" style="border-color: #333333;">
+
+                <div data-ng-if="(!lazyLoad || input.val.length > 2)">
+                    <div data-ng-if="checkType(['multiple', 'multiple_autocomplete', 'multiple_dashboard']) "
+                         data-ng-click="selectOption(option)"
+                         data-ng-repeat="option in options | filter:{label : input.val} | orderBy: 'label'"
+                         class="option wiseHover1">
+                         <div class="text"> {{formantRow(option.label)}} </div>
+                         <span class="checkIcon" data-ng-show="selectedData.indexOf(option) > -1">  &#x2713 </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div data-ng-if="checkType(['regular', 'regular_title'])"
+                 data-ng-click="selectOption(option)"
+                 data-ng-repeat="option in options"
+                 class="option wiseHover1">
+                 {{option.label}}
+            </div>
+
+
+            <div data-ng-if="checkType(['sections'])"
+                 data-ng-repeat="section in options">
+                <div class="wiseText5 title" data-ng-if="section.title!=''"> {{section.title}} </div>
+                <div 
+                    data-ng-class="{'sectionRowDisable' : checkSectionRowDisable(option)}"
+                    data-ng-click="selectOption(option)"
+                    data-ng-repeat="option in section.options"
+                    class="option wiseHover1">
+                    {{option.label}}
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</button>
+

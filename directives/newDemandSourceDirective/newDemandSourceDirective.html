@@ -1,0 +1,174 @@
+<div class="newDemandSourceDirective" data-ng-show="show">
+
+    <div class="modal-content">
+          <!-- Tabs -->
+        <div class="tabs" >
+            <div  class="wiseTitle2 navBtn"
+                  data-ng-class="{'selectedTab' : data.currentTabName == tab}"
+                  data-ng-click="clickTab(tab)">
+                  New Demand Source
+            </div>
+        </div>
+
+        <!-- Close icon -->
+        <span class="close" data-ng-click="show=false">&times;</span>
+
+        <!-- section (1) -->
+        <div class="section">
+
+            <!-- 1. demand platforms-->
+            <div class="element" data-ng-init="demandPlatforms=data.elements.demandPlatforms">
+                <div class="wiseText4 tableCell">
+                    *Demand Platform
+                </div>
+                <wise-select
+                            class="tableCell"
+                            placeholder="demand platforms"
+                            type="regular"
+                            options="demandPlatforms.options"
+                            selected-data="demandPlatforms.selected"
+                            width="170px"
+                            disabled-input="false">
+                </wise-select>
+            </div>
+
+            <!-- 2. demand partner radio-->
+            <div class="element" data-ng-init="demandPartnersRadioData=data.elements.demandPartnersRadio">
+                <div class="wiseText4 tableCell">
+                   *Demand Partner Name
+                </div>
+                <div class="wiseText6 radioButtons tableCell" >
+                    <span data-ng-repeat="radioData in demandPartnersRadioData.radioDataArr" class="radioButton">
+                        <input  type="radio" value="{{radioData.val}}" data-ng-model="demandPartnersRadioData.selected" class="wiseRadio" >
+                        {{radioData.label}}
+                    </span>
+                </div>
+            </div>
+
+            <!-- 3. demand source name -->
+            <div class="element" data-ng-init="demandSource=data.elements.demandSource">
+                <div class="wiseText4 tableCell">
+                    *Demand Source Name
+                </div>
+                <div class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="demandSource.selected" placeholder="">
+                </div>
+            </div>
+
+            <!-- 4. demand partner -->
+            <div class="element" data-ng-init="demandPartnersData=data.elements.demandPartners">
+                <div class="wiseText4 tableCell">
+                </div>
+                <wise-select
+                        data-ng-show="demandPartnersRadioData.selected == '0'"
+                        placeholder="{{demandPartnersData.label}}"
+                        type="regular"
+                        options="demandPartnersData.options"
+                        selected-data="demandPartnersData.selected"
+                        width="170px"
+                        disabled-input="false">
+                </wise-select>
+                <div data-ng-show="demandPartnersRadioData.selected == '1'" class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="demandPartnersData.selectedNew" placeholder="Demand Partner Name">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- section (2) -->
+        <div class="section">
+            <!-- 1. external Id-->
+            <div class="element " data-ng-init="externalIdData=data.elements.externalId">
+                <div class="wiseText4 tableCell">
+                   {{externalIdData.label}}
+                </div>
+                <div class="inputDiv tableCell">
+                        <input class="wiseInput" data-ng-model="externalIdData.selected" placeholder="External id">
+                </div>
+            </div>
+
+            <!-- 2. environment-->
+            <div class="element" data-ng-init="env=data.elements.env">
+                <div class="wiseText4 tableCell">
+                    {{env.label}}
+                </div>
+
+                <wise-select
+                        class="tableCell"
+                        type="regular"
+                        options="env.options"
+                        selected-data="env.selected"
+                        width="170px"
+                        disabled-input="false">
+                </wise-select>
+
+            </div>
+
+            <!-- 3. Rate-->
+            <div class="element " data-ng-init="rate=data.elements.rate">
+                <div class="wiseText4 tableCell">
+                    {{rate.label}}
+                </div>
+                <div class="inputDiv tableCell">
+                    <input class="wiseInput" data-ng-model="rate.selected" placeholder="Rate">
+                </div>
+            </div>
+
+            <!-- 4. os-->
+            <div class="element" data-ng-init="os=data.elements.os">
+                <div class="wiseText4 tableCell">
+                    {{os.label}}
+                </div>
+
+                <wise-select
+                        class="tableCell"
+                        type="regular"
+                        options="os.options"
+                        selected-data="os.selected"
+                        width="170px"
+                        disabled-input="false">
+                </wise-select>
+
+            </div>
+
+            <!-- 5. url -->
+            <div class="element" data-ng-init="url=data.elements.url">
+                <div class="wiseText4 tableCell">
+                    {{url.label}}
+                </div>
+                <div class="inputDiv tableCell">
+                    <input class="wiseInput url" data-ng-model="url.selected" placeholder="url">
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- section (4) -->
+        <div class="section textareaSection">
+            <!-- 1. supply platforms-->
+            <div data-ng-init="notes=data.elements.notes">
+                <div class="wiseText4 tableCell">
+                    notes
+                </div>
+
+            <textarea wiseText6 data-ng-model="notes.selected">
+                </textarea>
+            </div>
+        </div>
+
+        <!-- Last section -->
+        <div class="lastSection">
+            <div class="wiseBtn1" data-ng-click="show=false">
+                CANCEL
+            </div>
+            <div class="wiseBtn1 saveBtn" data-ng-click="save()">
+                SAVE
+            </div>
+        </div>
+        
+
+
+    </div> <!-- close modal-content-->
+
+</div>

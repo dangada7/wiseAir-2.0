@@ -1,0 +1,57 @@
+#userLogin {
+    padding-left : 5%;
+    padding-right: 5%;
+}
+
+#userLogin img.logo {
+    width:310px;
+    padding-bottom:100px;
+}
+
+#userLogin .btnWrapper{
+    width:450px;
+    float:right;
+}
+
+#userLogin .btnWrapper .loginBtn {
+    background-color:#FFB900;
+    color:#555453;
+    padding: 32px!important;
+    padding-top: 40px!important;
+}
+
+#userLogin .btnWrapper .loginBtn:hover {
+    background-color:#333333;
+    color:white;
+    cursor: pointer;
+}
+
+#userLogin .btnWrapper .loginBtn,
+#userLogin .btnWrapper input {
+    width: 370px;
+    font-size: 35px!important;
+    padding: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+#userLogin .btnWrapper input {
+    width: 370px;
+    font-size: 35px!important;
+    padding: 30px;
+    margin-bottom: 15px;
+    color:black;
+}
+
+#userLogin .btnWrapper .forgatPass {
+    float: right;
+    margin-right: 125px;
+    color:#FFB900;
+    border-bottom: 4px solid;
+    padding-bottom: 4px;
+}
+
+#userLogin .btnWrapper .forgatPass:hover {
+    cursor: pointer;
+    color:#333333;
+}   
+

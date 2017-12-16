@@ -1,0 +1,107 @@
+<div class="wisePopupDirective" data-ng-show="showPopup">
+
+    <div class="modal-content">
+
+        <!-- Tabs -->
+        <div class="tabs" >
+            <div    data-ng-repeat="tab in data.tabs"
+                    class="wiseTitle2 navBtn" 
+                    data-ng-class="{'selectedTab' : data.currentTabName == tab.name}"
+                    data-ng-click="clickTab(tab)">
+                    {{tab.label}}
+            </div>
+        </div>
+
+        <!-- Close icon -->
+        <span class="close" data-ng-click="clickOnClose()">&times;</span>
+        
+        <!-- 1) SECTIONS -->
+        <div class="sections">
+            <div    data-ng-repeat="section in data.body[data.currentTabName]"
+                    data-ng-class="{    'formSection'     : section.type=='form', 
+                                        'radioSection'    : section.type=='radio', 
+                                        'textAreaSection' : section.type=='textArea',
+                                        'customForm'      : section.type=='customForm',
+                                        'tableSection'    : section.type=='table'}" >
+
+                <!-- 2) SECTION -->
+                <div data-ng-repeat="bodyElement in section.data" 
+                     class="bodyElement" 
+                     data-ng-style="{'width' : bodyElement.elementWidth}"
+                     data-ng-show="bodyElement.showData==null || section.data[bodyElement.showData.att].selectedData == bodyElement.showData.val ">
+                    
+                    <!-- text -->
+                    <div class="wiseText4" data-ng-if="bodyElement.type=='text'">
+                        {{bodyElement.label}}
+                    </div>
+
+                    <!-- Select Reg-->
+                    <div data-ng-if="bodyElement.type=='select'" class="wiseText4">
+                        {{bodyElement.label}}
+                        <wise-select 
+                                placeholder="{{bodyElement.label}}"
+                                type="{{bodyElement.selectType}}"
+                                options="bodyElement.options"
+                                selected-data="bodyElement.selectedData"
+                                width="{{bodyElement.width}}"
+                                disabled-input="bodyElement.inputDisabled">
+                        </wise-select>
+                    </div>
+                
+                    <!-- input -->
+                    <div data-ng-if="bodyElement.type=='input'" class="wiseText4">
+                         {{bodyElement.label}}
+                        <input class="wiseInput" type="bodyElement.inputType" data-ng-model="bodyElement.selectedData">
+                    </div>
+
+                    <!-- Radio select -->
+                    <div data-ng-if="bodyElement.type=='radioSelect'" class="wiseText6 radioButtons" >
+                        
+                        <span data-ng-repeat="radioData in bodyElement.radiosData" class="radioButton">
+                            <input  type="radio" value="{{radioData.val}}" data-ng-model="bodyElement.selectedData" class="wiseRadio" > 
+                            {{radioData.label}}
+                        </span>
+                    </div>  
+
+                    <!-- switch -->
+                    <wise-switch
+                        data-ng-if="bodyElement.type=='switch'"
+                        label="{{bodyElement.label}}"
+                        status="bodyElement.status">
+                    </wise-switch>
+
+                    <!-- textArea -->
+                    <div data-ng-if="bodyElement.type=='textArea'" >
+                        <span class="wiseText4"> {{bodyElement.label}} </span>
+                        <textarea wiseText6 data-ng-selected="bodyElement.selectedData">
+                        </textarea>
+                    </div>
+                    
+                    <!-- table -->
+                    <wise-table 
+                        data-ng-if="bodyElement.type=='table'"
+                        table-data="bodyElement.tableData"
+                        show-loader="bodyElement.tableShowLoader"
+                        update-table="bodyElement.updateTable"
+                        row-clickable="bodyElement.rowClickable"
+                        table-style="style1">
+                    </wise-table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="lastSection">
+            <div class="wiseBtn1" data-ng-click="showPopup=false">
+                CANCEL
+            </div>
+            <div class="wiseBtn1 saveBtn" data-ng-click="clickSave()">
+                SAVE
+            </div>
+        </div>
+
+
+    </div> <!-- close modal-content-->
+        
+
+</div>

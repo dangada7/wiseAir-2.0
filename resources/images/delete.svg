@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="delete">
+            <g id="Group-7" transform="translate(2.000000, 0.000000)">
+                <path d="M2,4.49406028 C2,3.3927712 2.90195036,2.5 4.0085302,2.5 L11.9914698,2.5 C13.1007504,2.5 14,3.39451376 14,4.49406028 L14,16.5059397 C14,17.6072288 13.0980496,18.5 11.9914698,18.5 L4.0085302,18.5 C2.8992496,18.5 2,17.6054862 2,16.5059397 L2,4.49406028 Z M11.75,5.5 L10.25,5.5 L10.25,16.5 L11.75,16.5 L11.75,5.5 Z M8.75,5.5 L7.25,5.5 L7.25,16.5 L8.75,16.5 L8.75,5.5 Z M5.75,5.5 L4.25,5.5 L4.25,16.5 L5.75,16.5 L5.75,5.5 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <rect id="Rectangle-2" fill="#FFFFFF" x="0" y="2.5" width="16" height="2"></rect>
+                <g id="Group" transform="translate(4.250000, 5.500000)"></g>
+                <rect id="Rectangle-2" fill="#FFFFFF" x="6" y="0.5" width="4" height="4" rx="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

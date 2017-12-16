@@ -1,0 +1,60 @@
+.wiseDropdown {
+    cursor: pointer;
+    font-family : "futura-pt-bold";
+    font-weight : 700;
+    color: var(--black);
+    font-size: 18px;
+    background: transparent;
+    padding: 0px;
+    border: none;
+}
+
+.wiseDropdown:focus {
+    outline:none;
+}
+
+.wiseDropdown .title {
+    padding: 14px 14px;
+    color: inherit;
+    background-color: inherit;
+}
+
+.wiseDropdown .title a {
+    text-decoration:none;
+    color: inherit;
+}
+
+.wiseDropdown .content{
+    /*display: none;*/
+    position: absolute;
+    background-color: var(--black);
+    color: white;
+    min-width: 210px;
+    z-index:101;
+    margin-top: -1px;
+}
+
+.wiseDropdown .content a{
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+/*
+.wiseDropdown:hover{
+    background-color: var(--black);
+    color: white!important;
+}
+
+.wiseDropdown:hover .content {
+    display: block;
+    font-family : "futura-pt-bold";
+    font-weight : 700;
+
+}
+*/
+.wiseDropdown .content a:hover {
+    background-color : white;
+    color : var(--black)
+}

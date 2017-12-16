@@ -1,0 +1,121 @@
+
+#reportCustom .secondSection {
+}
+
+#reportCustom input.domain{
+    color: white;
+    background: #333333;
+    border: none;
+    border-bottom: 1px solid white;
+    width: 170px;
+}
+
+#reportCustom input.domain::-webkit-input-placeholder {
+    color: white !important;
+}
+
+#reportCustom .secondSection .reportType{
+}
+
+#reportCustom .secondSection .dimensiosnsDiv{
+    padding-bottom:48px;
+    padding-right: 48px;
+    padding-top:16px;
+    display:inline-table;
+}
+
+#reportCustom .secondSection .dimensiosnsDiv .filterWrapper {
+    margin-right:4px;
+}
+
+
+#reportCustom .secondSection .filtersDiv{
+    display:inline-table;
+    margin-right:300px;
+}
+
+#reportCustom .secondSection .dateFiltersDiv{
+    display:inline-table;
+        margin-bottom:48px;
+
+}
+
+#reportCustom .secondSection .filtersBtnsDiv{
+    margin-top:-20px;
+    margin-bottom:20px;
+}
+
+#reportCustom .secondSection .filtersBtnsDiv div{
+    float:right;
+}
+
+
+#reportCustom .secondSection  .filterWrapper{
+    display: inline-block;
+    padding-top:10px;
+    padding-right:6px;
+    vertical-align:top;
+
+}
+
+#reportCustom .secondSection .wiseLoaderWrapper {
+    text-align: -webkit-center;
+
+}
+
+#reportCustom .chartSection {
+    padding-top: 20px;
+}
+
+
+
+#reportCustom .dimTitle {
+    padding-bottom:8px;
+    margin-top:-8px;
+}
+
+
+/* savedReportPopup */
+.savedReportPopup {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: left;
+}
+
+.savedReportPopup .modal-content {
+    background-color: var(--gray);
+    margin: auto;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%) translate(-50%);
+    left: 50%;
+}
+
+.savedReportPopup .modal-content .wiseTitle2{
+    padding-bottom: 8px;
+}
+
+.savedReportPopup .modal-content button {
+    float:right;
+}
+
+
+.savedReportPopup input {
+    width : 100%;
+}
+
+#reportCustom wise-custom-date .wiseCustomDateDirective .dropDown{
+    margin-top:24px;
+}
+
+

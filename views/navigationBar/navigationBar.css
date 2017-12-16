@@ -1,0 +1,270 @@
+
+/* topbar */
+.top-bar {
+    text-align: center;
+    height: 50px;
+    background-color:white;
+}
+
+/* ==============
+    top bar logo:
+    =============*/
+
+/* logoDiv */
+.top-bar .logoDiv{
+    position : absolute;
+}
+
+/* logo img  */
+.top-bar .logoDiv img {
+    height : 50px;
+}
+
+/* ================
+    top-bar-middle: 
+    ===============*/
+
+.top-bar .top-bar-middle {
+    display:inline-flex;
+}
+
+.top-bar .top-bar-middle .active {
+    background-color: var(--gray);
+    color: white!important;
+}
+
+.top-bar .top-bar-middle .isExpended {
+    background-color: #333333;
+    color: white!important;
+}
+
+.top-bar .top-bar-middle .wiseDropdown img{
+    margin-bottom : 2px;
+}
+
+.top-bar .top-bar-middle a {
+    color: inherit;
+    text-decoration: inherit
+}
+
+/* ================
+    top-bar-right: 
+    ===============*/
+
+.top-bar .top-bar-right { 
+    position : absolute;
+    right : 0;
+    top : 0;
+}
+
+.top-bar .currentTime {
+    display: inline;
+    top: -20px;
+    position: relative;
+    padding-right: 10px;
+    cursor : pointer;
+    color: #333333;
+}
+
+.top-bar .currentTime:hover {
+    color : var(--gray);
+}
+
+.top-bar .userName {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #555453;
+}
+
+.top-bar .userName img{
+    width : 15px;
+}
+
+
+.top-bar-right .wiseComplexDropdown,
+.top-bar-right .wiseDropdown
+{
+    width:50px;
+    display:inline-block;
+}
+
+/* user icon */
+.top-bar-right .userDropdown .title{
+    background-image: url('/resources/images/user.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+}
+
+.top-bar-right .userDropdown .titleHover
+{
+    background:#333333;
+    background-image: url('/resources/images/userHover.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+}
+
+.top-bar-right .userDropdown .content {
+    right:0;
+}
+
+/* alert icon*/
+.top-bar-right .alertDropdown .title {
+    background-image: url('/resources/images/alert.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+}
+
+.top-bar-right .alertDropdown .titleHover {
+    background: #333333;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+    background-image: url('/resources/images/alertHover.svg') ;
+}
+
+.top-bar-right .alertDropdown .complexContent
+{
+    right:108px;
+    width:350px;
+}
+
+.top-bar-right .alertDropdown .createNewRule
+{
+    line-height : 22px!important;
+}
+
+/* notify icon*/
+.top-bar-right .notifyDropdown .title{
+    background-image: url('/resources/images/notify.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+}
+
+.top-bar-right .notifyDropdown .titleHover
+{
+    background:#333333;
+
+    background-image: url('/resources/images/notifyHover.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 30px; 
+    padding-bottom: 20px; 
+}
+
+.top-bar-right .notifyDropdown .complexContent
+{
+    right:54px;
+    width:300px;
+}
+
+/* alert icon*/
+.top-bar-right .alertDropdown .complexContentBottom .markAsRead{
+    float : right;
+}
+
+.top-bar-right .alertDropdown .complexContentTitle .wiseBtn2 img{
+    position : absolute;
+    right: 127px;
+    height: 18px;
+    top: 11px;
+}
+
+.top-bar-right .alertDropdown .complexContentTitle .wiseBtn2:hover img{
+    content:url("/resources/images/createNewHover.svg");
+}
+
+.top-bar-right .alertDropdown .complexContentBodyRow .openRuleBtn {
+    float:right;
+    margin-right:10px;
+
+}
+
+.top-bar-right .alertDropdown .num {
+    right: 114px;
+    top: 7px;
+}
+.top-bar-right .notifyDropdown .num {
+    right: 63px;
+    top: 7px;
+}
+
+/* wishPopupModel */
+.top-bar .wishPopupModel{
+    text-align : left;
+}
+
+
+
+/* savedReportPopup */
+.top-bar .popup {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    text-align: left;
+}
+
+.top-bar .popup .modal-content {
+    background-color: var(--gray);
+    margin: auto;
+    width: 1000px;
+    margin-bottom:200px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translate(-50%);
+    left: 50%;
+    margin-top: -50px;
+}
+
+.top-bar .popup .modal-content .close {
+    color: white;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -15px;
+    margin-right: -6px;
+}
+
+.top-bar .popup .modal-content .close:hover,
+.top-bar .popup .modal-content .close:focus {
+    color: var(--yellow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.top-bar .popup .dirWiseTable{
+    padding-top: 0px !important;
+    padding-bottom: 40px !important;
+}
+
+.top-bar .popup .model-content .tableWrapper{
+    height 200px;
+}
+
+.top-bar new-alert-rule {
+    text-align:-webkit-auto;
+
+
+}
+
+
+
+
+
+
